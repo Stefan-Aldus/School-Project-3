@@ -64,9 +64,9 @@
       </nav>
   </header>
 
-  <main>
+  <main class="bg">
 <section class="header-h">
-    <div class="wrapper-header-h">
+    <div class="container-header-h">
     <div class="card-h">
         
         </div>
@@ -77,11 +77,13 @@
         <div class="card-h">
             
         </div>
-    
-        <div class="card-h">
-            
-        </div>
     </div>
+<div class="container2-header-h">
+  <div class="card2-h">
+    
+  </div>
+</div>
+
 </section>
 
 

@@ -98,29 +98,30 @@ main {
 }
 
 .header-h {
-    height: 93vh;
+    height: auto;
     width: 100vw;
-    background-color: white;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
 
 .card-h {
     height: 700px;
-    background-color: white;
     width: 450px;
     background-image: url(./img/kaas-20334470.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 5vh;
 
 
 }
 
-.wrapper-header-h {
-    height: auto;
+
+
+.container-header-h {
+    height: 85vh;
     width: 95vw;
     display: flex;
     flex-direction: row;
@@ -129,4 +130,22 @@ main {
 
 }
 
+.container2-header-h {
+    height: 45vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card2-h {
+    height: 40vh;
+    width: 70vw;
+    background-color: green;
+    border-radius: 5vh;
+}
+
+.bg {
+    background-color: #FFF7B6;
+}
 

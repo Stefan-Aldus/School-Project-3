@@ -51,6 +51,8 @@ nav {
     background-color: rgb(44, 44, 44);
     align-items: center;
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 1;
     color: rgb(200, 200, 200);
 }
@@ -61,6 +63,12 @@ nav a {
 
 nav a:hover {
     color: rgb(255, 255, 255);
+}
+
+main {
+    margin-top: 7vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-ul {
@@ -88,3 +96,37 @@ nav a:hover {
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
 }
+
+.header-h {
+    height: 93vh;
+    width: 100vw;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card-h {
+    height: 700px;
+    background-color: white;
+    width: 450px;
+    background-image: url(./img/kaas-20334470.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+.wrapper-header-h {
+    height: auto;
+    width: 95vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+

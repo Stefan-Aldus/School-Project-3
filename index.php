@@ -60,8 +60,9 @@
               >
             </div>
           </li>
-          <a href="#">LOGIN</a>
+          
         </ul>
+        <div><a href="#">LOGIN</a></div>
       </nav>
   </header>
 
@@ -102,7 +103,7 @@
 
 
   <footer>
-    
+    <p>Copyright Jens en Co</p>
   </footer>
 
 </body>

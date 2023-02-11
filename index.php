@@ -13,57 +13,8 @@
 </head>
 <body>
     <header class="main-head">
-      <nav>
-        <a href="/index.html" class="logo">Jens en Co</a>
-        <ul class="nav-ul">
-          <li class="dropdown">
-            <a href="#" class="dropbtn">example1</a>
-            <div class="dropdown-content">
-              <a href="#">example</a>
-              <a href="#">example</a>
-              <a href="#">example</a>
-            </div>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropbtn">example2</a>
-            <div class="dropdown-content">
-              <a href="#"
-                >example</a
-              >
-              <a href="#"
-                >example</a
-              >
-              <a href="#"
-                >example</a
-              >
-            </div>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropbtn">example3</a>
-            <div class="dropdown-content">
-              <a href="#">example</a>
-              <a href="#">example</a>
-              <a href="#">example</a>
-            </div>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropbtn">example4</a>
-            <div class="dropdown-content">
-              <a href="#"
-                >example</a
-              >
-              <a href="#"
-                >example</a
-              >
-              <a href="#"
-                >example</a
-              >
-            </div>
-          </li>
-          
-        </ul>
-        <div><a href="#">LOGIN</a></div>
-      </nav>
+      <!-- nav bar -->
+    <?php include 'includes/nav.html'; ?>
   </header>
 
   <main class="bg">
@@ -101,10 +52,8 @@
 
   </main>
 
-
-  <footer>
-    <p>Copyright Jens en Co</p>
-  </footer>
+<!-- footer -->
+  <?php include 'includes/footer.html'; ?>
 
 </body>
 </html>

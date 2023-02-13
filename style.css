@@ -16,23 +16,33 @@ html {
 .dropdown {
     position: relative;
     display: inline-block;
+    
 }
+
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgb(100, 100, 100);
+    background-color:#ffdb81;
     height: 20vh;
     width: 10vw;
     text-align: center;
+    box-shadow:
+    0 -2px 1.5px rgba(0,0,0,0.12),
+    0 -2px 1.5px rgba(0,0,0,0.12)
 }
+
 
 .dropdown-content a {
     text-decoration: none;
     display: block;
-    color: rgb(200, 200, 200);
+    color: rgb(16, 16, 16);
     width: 10vw;
     font-size: 1.1rem;
+    text-shadow:  0 1px 1px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12),
+    0 2px 2px rgba(0,0,0,0.12),  
+    0 16px 16px rgba(0,0,0,0.12)
 }
 
 .dropdown:hover .dropdown-content {
@@ -97,7 +107,7 @@ main {
     text-shadow:  0 1px 1px rgba(0,0,0,0.12), 
     0 2px 2px rgba(0,0,0,0.12),
     0 2px 2px rgba(0,0,0,0.12),  
-    0 16px 16px rgba(0,0,0,0.12)
+    0 16px 16px rgba(0,0,0,0.12);
 }
 
 .logo {

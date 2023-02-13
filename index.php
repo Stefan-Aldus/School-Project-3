@@ -25,6 +25,9 @@
 </div>
 
 
+<img class="about-pic" src="./img/tcrbuilding.jpg" alt="">
+
+
 </section>
 
 <section class="header-h">

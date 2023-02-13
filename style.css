@@ -172,16 +172,19 @@ main {
     width: 100vw;
     background-color: gray;
     display: flex;
+
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     background-color:#ffdb8193;
+    box-shadow:
+    0 8px 8px rgba(0,0,0,0.12);
    
 }
 
 .about-title-h {
     height: auto;
-    width: 85vw;
+    width: 65vw;
     display: flex;
     flex-direction: column;
     text-shadow:  0 1px 1px rgba(0,0,0,0.12), 
@@ -204,7 +207,11 @@ main {
     
 }
 
-
+.about-pic {
+    height: 50vh;
+    width: 28vw;
+    background-color: rebeccapurple;
+}
 
 
 

@@ -110,6 +110,33 @@ main {
     color: white;
  }
 
+ .footer-container {
+    height: 13vh;
+    width: 90vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1rem;
+
+ }
+
+
+ .f-links ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 250px;
+ }
+
+ .f-links li {
+    list-style-type: none;
+ }
+
+ .f-links a {
+    text-decoration: none;
+    color: white;
+ }
+
 /* background */
 .bg {
     background-color: #FFF7B6;
@@ -173,7 +200,7 @@ main {
 }
 
 .card-h:nth-last-child(1){
-    background-image: url(./img/jonge-kaas.png);
+    background-image: url(./img/jongekaas.png);
 }
 
 .card-h:nth-last-child(2){

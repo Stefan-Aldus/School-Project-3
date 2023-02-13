@@ -20,7 +20,7 @@
   <main class="bg">
 <section class="about-h">
 <div class="about-title-h">
-  <h1>Welkom tot Brouwerskazen</h1>
+  <h1>Welkom bij Brouwerskazen</h1>
   <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus ducimus voluptatem excepturi laboriosam, doloribus totam minima cupiditate, culpa inventore vero error maiores? Hic repellat modi ullam, possimus laborum voluptas unde. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim fuga dolores hic vero dolore sequi voluptatum obcaecati, aperiam consequuntur mollitia ex quasi non excepturi expedita dolorem nobis amet tempora possimus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas sit commodi dolorum dolor impedit repellat ullam vitae sequi sint tenetur labore asperiores, necessitatibus cum consequuntur suscipit, assumenda ipsam iusto natus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo ad error, nam id quas odio ea perferendis amet consectetur. Doloribus voluptatibus vitae officiis explicabo eveniet est error repellendus, eligendi tenetur. </p>
 </div>
 
@@ -54,6 +54,5 @@
 
 <!-- footer -->
   <?php include 'includes/footer.html'; ?>
-
 </body>
 </html>

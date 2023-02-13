@@ -48,7 +48,7 @@ nav {
     justify-content: space-around;
     width: 100vw;
     height: 7vh;
-    background-color: rgb(44, 44, 44);
+    background-color:#ffdb81;
     align-items: center;
     position: fixed;
     top: 0;
@@ -88,6 +88,11 @@ main {
     text-align: center;
     width: 10vw;
     font-size: 1.1rem;
+    color: black;
+    text-shadow:  0 1px 1px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12),
+    0 2px 2px rgba(0,0,0,0.12),  
+    0 16px 16px rgba(0,0,0,0.12)
 }
 
 .logo {
@@ -95,8 +100,19 @@ main {
     letter-spacing: 2px;
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
+    color: black;
+    text-shadow:  0 1px 1px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12),
+    0 2px 2px rgba(0,0,0,0.12),  
+    0 16px 16px rgba(0,0,0,0.12)
 }
-
+.login{
+    color:black;    
+    text-shadow:  0 1px 1px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12),
+    0 2px 2px rgba(0,0,0,0.12),  
+    0 16px 16px rgba(0,0,0,0.12)
+}
 /* footer */
  footer {
     display: flex;
@@ -154,6 +170,7 @@ main {
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    background-color:#ffdb8193;
    
 }
 
@@ -162,16 +179,24 @@ main {
     width: 85vw;
     display: flex;
     flex-direction: column;
+    text-shadow:  0 1px 1px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12), 
+    0 16px 16px rgba(0,0,0,0.12)
 }
 
 .about-title-h h1 {
     font-size: 2rem;
+    text-shadow:  0 1px 1px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12), 
+    0 16px 16px rgba(0,0,0,0.12)
+    
 }
 
 .about-title-h p {
     width: 60vw;
     margin-top: 10px;
     font-size: 1.2rem;
+    
 }
 
 
@@ -188,13 +213,19 @@ main {
 }
 
 .card-h {
-    height: 600px;
-    width: 400px;
+    height: 86%;
+    width: 25%;
     background-image: url(./img/kaas-20334470.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5vh;
+    box-shadow:  0 1.5px 1.5px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12), 
+    0 4px 4px rgba(0,0,0,0.12), 
+    0 8px 8px rgba(0,0,0,0.12),
+    0 2px 2px rgba(0,0,0,0.12),  
+    0 16px 16px rgba(0,0,0,0.12);
 }
 
 .card-h:nth-last-child(1){
@@ -235,6 +266,11 @@ main {
     border-radius: 5vh;
     background-image: url(./img/kaashcaven.png);
     background-position: center;
+    box-shadow:  0 1.5px 1.5px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12), 
+    0 4px 4px rgba(0,0,0,0.12), 
+    0 8px 8px rgba(0,0,0,0.12),
+    0 16px 16px rgba(0,0,0,0.12)
 }
 /* 1 */
 

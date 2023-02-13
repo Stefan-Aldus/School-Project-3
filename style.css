@@ -188,18 +188,17 @@ main {
 }
 
 .card-h {
-    height: 700px;
-    width: 450px;
+    height: 600px;
+    width: 400px;
     background-image: url(./img/kaas-20334470.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5vh;
-
-
 }
 
 .card-h:nth-last-child(1){
+    backdrop-filter: blur();
     background-image: url(./img/jongekaas.png);
 }
 
@@ -230,8 +229,8 @@ main {
 }
 
 .card2-h {
-    height: 380px;
-    width: 1000px;
+    height: 300px;
+    width: 900px;
     background-color: green;
     border-radius: 5vh;
     background-image: url(./img/kaashcaven.png);

@@ -10,9 +10,7 @@
   <!-- Linking font for navbar logo -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -25,15 +23,7 @@
     <section class="about-h">
       <div class="about-title-h">
         <h1>Welkom bij Brouwerskazen</h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus ducimus voluptatem excepturi
-          laboriosam, doloribus totam minima cupiditate, culpa inventore vero error maiores? Hic repellat modi ullam,
-          possimus laborum voluptas unde. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim fuga dolores hic
-          vero dolore sequi voluptatum obcaecati, aperiam consequuntur mollitia ex quasi non excepturi expedita dolorem
-          nobis amet tempora possimus. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas sit commodi
-          dolorum dolor impedit repellat ullam vitae sequi sint tenetur labore asperiores, necessitatibus cum
-          consequuntur suscipit, assumenda ipsam iusto natus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Illo ad error, nam id quas odio ea perferendis amet consectetur. Doloribus voluptatibus vitae officiis
-          explicabo eveniet est error repellendus, eligendi tenetur. </p>
+        <p>Wij zijn BrouwersKazen. BrouwersKazen is een klein bedrijf dat gevestigd is in Spijkenisse door 4 studenten van het TCR MBO college: Jens Brouwershaven, Jesse van Vliet, Stefan Aldus en Rowen Bakkeren. Ons bedrijf is gemaakt met het motief om kaas van een goede kwaliteit en en lage prijs te verkopen. Ons grootste doel is om onze klanten blij te maken met onze hoge kwaliteit kaas. Wij zorgen ervoor dat we de beste kaas voor een goede en lage prijs aan u kunnen verkopen. </p>
       </div>
 
 

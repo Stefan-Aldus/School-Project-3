@@ -207,8 +207,7 @@ footer {
 
 .header-pic {
   height: 35vh;
-  width: 28vw;
-  border-radius: 1vh;
+  width: 17vw;
 }
 
 .header-h {
@@ -321,11 +320,11 @@ font-size: 1.8rem;
 }
 
 .list li, .list p {
-  width: 75vw;
-  text-align: center;
+  width: 50vw;
 }
 
 .list li {
+  text-align: center;
   list-style-position: inside;
   position: relative;
   width: auto;

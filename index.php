@@ -24,7 +24,7 @@
     <section class="about-h">
       <div class="about-title-h">
         <h1>Welkom bij Brouwerskazen</h1>
-        <p>Wij zijn BrouwersKazen. BrouwersKazen is een klein bedrijf dat gevestigd is in Spijkenisse door 4 studenten van het TCR MBO college: Jens Brouwershaven, Jesse van Vliet, Stefan Aldus en Rowen Bakkeren. Ons bedrijf is gemaakt met het motief om kaas van een goede kwaliteit en en lage prijs te verkopen. Ons grootste doel is om onze klanten blij te maken met onze hoge kwaliteit kaas. Wij zorgen ervoor dat we de beste kaas voor een goede en lage prijs aan u kunnen verkopen. </p>
+        <p>Wij zijn BrouwersKazen. BrouwersKazen is een klein bedrijf dat gevestigd is in Spijkenisse in eind 2022 door 4 studenten van het TCR MBO college: Jens Brouwershaven, Jesse van Vliet, Stefan Aldus en Rowen Bakkeren. Ons bedrijf is gemaakt met het motief om kaas van een goede kwaliteit en en lage prijs te verkopen. Ons grootste doel is om onze klanten blij te maken met onze hoge kwaliteit kaas. Wij zorgen ervoor dat we de beste kaas voor een goede en lage prijs aan u kunnen verkopen. </p>
       </div>
 
 

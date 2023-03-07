@@ -1,3 +1,7 @@
+:root{
+  --heading-color: #ffdb81;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +25,7 @@ html {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #ffdb81;
+  background-color: var(--heading-color);
   height: 20vh;
   width: 10vw;
   text-align: center;
@@ -51,7 +55,7 @@ nav {
   justify-content: space-around;
   width: 100vw;
   height: 7vh;
-  background-color: #ffdb81;
+  background-color: var(--heading-color);
   align-items: center;
   position: fixed;
   top: 0;
@@ -167,7 +171,7 @@ footer {
   align-items: center;
   flex-direction: row;
   justify-content: center;
-  background-color: #ffdb8193;
+  background-color: var(--heading-color);
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.12);
 }
 
@@ -316,7 +320,7 @@ font-size: 1.8rem;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #ffdb8193;
+  background-color: var(--heading-color);
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.12);
 }
 

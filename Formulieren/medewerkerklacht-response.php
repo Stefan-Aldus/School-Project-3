@@ -63,7 +63,10 @@ session_start();
 
 </main>
 
-<?php include '../includes/footer.html'; ?>
+<?php 
+include '../includes/mailscript.php';
+include '../includes/footer.html'; 
+?>
 </body>
 
 </html>

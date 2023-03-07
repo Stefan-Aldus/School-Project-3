@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-  font-size: 1rem;
-}
-
 body {
   overflow-x: hidden;
 }
@@ -159,6 +154,7 @@ footer {
 .bg {
   background-color: #fff7b6;
   width: 100vw;
+  min-height: 100vh;
 }
 
 /* home */
@@ -205,11 +201,6 @@ footer {
 0 16px 16px rgba(0, 0, 0, 0.12);
 }
 
-.header-pic {
-  height: 35vh;
-  width: 17vw;
-}
-
 .header-h {
   height: auto;
   width: 100vw;
@@ -233,6 +224,7 @@ footer {
   box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
     0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
     0 2px 2px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
 }
 
 .card-h-detail {
@@ -289,7 +281,8 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+    cursor: pointer;
+  }
 
 .sharp-h {
 background-color: rgb(248, 243, 213);
@@ -311,28 +304,91 @@ font-size: 1.8rem;
 
 /* 1 */
 
-.list {
+
+/* start formulieren */
+
+/* Medewerkerklacht */
+.about-mk {
+  height: 30vh;
+  width: 100vw;
+  background-color: gray;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffdb8193;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.12);
+}
+
+.about-mk-title  {
+  margin-left: 100px;
+}
+
+.about-mk-title p {
+  width: 70vh;
+  margin-top: 5px;
+  font-size: 1.2rem;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+
+}
+
+.about-mk-title h1 {
+  font-size: 2rem;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+
+}
+
+.about-mk-pic {
+  height: 30vh;
+  margin-right: 100px;
+}
+
+.formulieren {
   justify-content: center;
   align-items: center;
+  display: flex;
   width: 100vw;
+  min-height: 80vh;
 }
 
-.list li, .list p {
-  width: 50vw;
+.input-mk {
+  display: flex;
+  flex-direction: column;
 }
 
-.list li {  
-  font-weight: 700;
-  font-size: 1.3rem;
+.textfield-1-mk {
+  height: 50px;
+  width: 600px;
+  background-color: lightgray;
+  border: none;
+  border-radius: 2vh;
+  margin-bottom: 10px;
+  padding-left: 10px;
 }
 
-.list li:not(:first-of-type){
-  margin-top: 4vh;
+
+.input-mk textarea {
+  border: none;
+  border-radius: 2vh;
+  background-color: lightgray;
+  margin-bottom: 20px;
+  resize: vertical;
+  min-height: 30vh;
+  max-height: 50vh;
+  padding-top: 3px;
+  padding-left: 10px;
 }
 
-.small-margin {
-  margin-top: 4vh;
-  margin-bottom: 4vh;
+.textfield-2-mk {
+  height: 50px;
+  border: none;
+  border-radius: 2vh;
+  background-color: lightgray;  
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.textfield-2-mk:hover {
+  background-color: rgb(227, 224, 224)
 }

@@ -33,7 +33,7 @@ session_start();
     <?php include '../includes/nav.html' ?>
   </header>
 
-  <?php echo $_SESSION["name"]   ?>
+  
   
 <main class="bg">
   <div class="about-mk">
@@ -46,20 +46,22 @@ session_start();
     </div>
     <img class="about-mk-pic" src="./img/mederwerker.png" alt="">
   </div>
-
-  <form class="formulieren" method="post" action="./medewerkerklacht-response.php">
-  <div class="input-mk">
+  <form class="formulieren" method="post" action="./Formulieren/productklacht-response.php">
+      <div class="input-mk">
         <label for="name">Uw naam is:</label>
-        <input class="textfield-1-mk type="text" id="name" name="name"pattern="[A-Za-z]+  value=<?php echo $_SESSION["name"]   ?> " required />
+        <input class="textfield-1-mk type=" text" id="name" name="name" pattern="[A-Za-z]+"
+          value="<?php echo $_SESSION["name"] ?> " required />
         <label for="email">Uw email is:</label>
-        <input class="textfield-1-mk type="text" id="email" name="email"  value=<?php echo $_SESSION["email"]   ?> required />
-        <label for="about:">Naam medewerker:</label>
-        <input class="textfield-1-mk type="text" id="about" name="about"  value=<?php echo $_SESSION["about"]   ?> required />
+        <input class="textfield-1-mk type=" text" id="email" name="email" value="<?php echo $_SESSION["email"] ?>"
+          required />
+        <label for="about:">Naam Product:</label>
+        <input class="textfield-1-mk type=" text" id="about" name="about" value=<?php echo $_SESSION["about"] ?>
+          required />
         <label for="complaint">Wat is uw klacht:</label>
-        <textarea name="complaint" id="complaint"  value=<?php echo $_SESSION["complaint"] ?> required></textarea>
-        <input class="textfield-2-mk"  type="submit" name="submit" id="submit" value="submit">
-    </div>
-  </form>
+        <textarea name="complaint" id="complaint" required><?php echo $_SESSION["complaint"]; ?></textarea>
+        <input class="textfield-2-mk" type="submit" name="submit" id="submit" value="submit">
+      </div>
+    </form>
 
 </main>
 

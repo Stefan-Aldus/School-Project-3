@@ -43,15 +43,17 @@
       </div>
       <div class="medewerker">
         <h2>Jesse Van Vliet</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam eaque voluptas, exercitationem explicabo,
-          nesciunt repellendus vel quia sint placeat officiis inventore deleniti iure, blanditiis omnis molestiae iste
-          itaque tempore beatae!</p>
+        <p>Hallo mijn naam is Jesse en ik zit op het Techniek College Rotterdam en volg de opleiding software
+          development ( back-end), ik ben 17 jaar oud en ik kom uit Spijkenisse, in mij vrije tijd kijk ik films, speel
+          ik games en ben ik veel met me vrienden, na deze opleiding ben ik van plan om verder te studeren op het HBO
+        </p>
       </div>
       <div class="medewerker">
         <h2>Rowen Bakkeren</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptatem similique ut tempora fugit
-          repudiandae omnis recusandae ratione qui, velit ab inventore possimus praesentium reiciendis blanditiis
-          eligendi saepe neque quam!
+        <p>Mijn naam is Rowen, en ik zit ook op het Techniek College Rotterdam. Ik ben 16 jaar oud en doe de opleiding
+          Software Developer. Ik ben geboren in Rotterdam en woon nu in Spijkenisse. Mijn Hobby's zijn Gamen en naar
+          buiten gaan met vrienden. Op het TCR leer ik MySQL, PHP, Javascript, HTML/CSS en meer. Ik ben van plan om na mijn MBO opleiding een HBO opleiding te volgen of om een zo
+          goed mogelijke baan te vinden na het behalen van mijn diploma.
         </p>
       </div>
 

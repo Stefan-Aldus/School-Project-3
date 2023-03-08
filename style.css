@@ -397,3 +397,31 @@ font-size: 1.8rem;
 .textfield-2-mk:hover {
   background-color: rgb(227, 224, 224)
 }
+
+/* Eco friendly */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.list li, .list p {
+  width: 50vw;
+}
+
+.list li {  
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.list li:not(:first-of-type){
+  margin-top: 4vh;
+}
+
+.small-margin {
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+}

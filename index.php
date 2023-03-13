@@ -41,25 +41,25 @@
 
     <section class="header-h">
       <div class="container-header-h">
-        <div class="card-h">
+        <div class="card-h" id="young">
 
           <p class="sharp-h">Jonge Kaas</p>
 
         </div>
 
-        <div class="card-h">
+        <div class="card-h" id="old">
 
 
           <p class="sharp-h">Oude Kaas</p>
         </div>
-        <div class="card-h">
+        <div class="card-h" id="sharp">
           <p class="sharp-h">Scherpe Kaas</p>
 
 
         </div>
       </div>
       <div class="container2-header-h">
-        <div class="card2-h">
+        <div class="card2-h" id="accesoires">
 
           <p class="sharp-h">Accesoires</p>
         </div>
@@ -73,6 +73,7 @@
 
   <!-- footer -->
   <?php include 'includes/footer.html'; ?>
+  <script src="./app.js"></script>
 </body>
 
 </html>

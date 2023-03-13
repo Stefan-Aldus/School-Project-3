@@ -24,8 +24,9 @@
     <main class="bg">
         <div class="about-mk">
             <div class="about-mk-title">
-                <h1>Admin data toevoegen</h1>
-                <p> Op deze pagina kunt u data toevoegen tot de database, pas op met wat je toevoegt!
+                <h1>Admin orders inzien</h1>
+                <p> Op deze pagina kunt u bestellingen inzien, en door middel van datums filteren om te kijken of er
+                    fouten zijn!
                 </p>
 
             </div>

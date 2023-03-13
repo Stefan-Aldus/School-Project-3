@@ -1,4 +1,4 @@
-:root{
+:root {
   --heading-color: #ffdb81;
 }
 
@@ -201,8 +201,8 @@ footer {
   width: 28vw;
   border-radius: 1vh;
   box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
-0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
-0 16px 16px rgba(0, 0, 0, 0.12);
+    0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
 }
 
 .header-h {
@@ -261,7 +261,7 @@ footer {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-}   
+}
 
 .container2-header-h {
   height: 45vh;
@@ -281,33 +281,32 @@ footer {
   box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
     0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
     0 16px 16px rgba(0, 0, 0, 0.12);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 
 .sharp-h {
-background-color: rgb(248, 243, 213);
-border-radius: 1vh;
-padding-bottom: 0.4rem;
-padding-top: 0.4rem;
-padding-left: 0.9rem;
-padding-right: 0.9rem;
-opacity: 0.87   ;
-box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
-0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
-0 16px 16px rgba(0, 0, 0, 0.12);
-text-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
-0 16px 16px rgba(0, 0, 0, 0.12);
-text-decoration: none;
-font-family: "Poppins", sans-serif;
-font-size: 1.8rem;
+  background-color: rgb(248, 243, 213);
+  border-radius: 1vh;
+  padding-bottom: 0.4rem;
+  padding-top: 0.4rem;
+  padding-left: 0.9rem;
+  padding-right: 0.9rem;
+  opacity: 0.87;
+  box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
+  text-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
 }
 
 /* 1 */
-
 
 /* start formulieren */
 
@@ -325,7 +324,7 @@ font-size: 1.8rem;
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.12);
 }
 
-.about-mk-title  {
+.about-mk-title {
   margin-left: 100px;
 }
 
@@ -333,14 +332,12 @@ font-size: 1.8rem;
   width: 70vh;
   margin-top: 5px;
   font-size: 1.2rem;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
-
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .about-mk-title h1 {
   font-size: 2rem;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
-
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .about-mk-pic {
@@ -371,7 +368,6 @@ font-size: 1.8rem;
   padding-left: 10px;
 }
 
-
 .input-mk textarea {
   border: none;
   border-radius: 2vh;
@@ -388,12 +384,14 @@ font-size: 1.8rem;
   height: 50px;
   border: none;
   border-radius: 2vh;
-  background-color: lightgray;  
+  background-color: lightgray;
   cursor: pointer;
   margin-bottom: 20px;
   padding-left: 10px;
 }
 
 .textfield-2-mk:hover {
-  background-color: rgb(227, 224, 224)
+  background-color: rgb(227, 224, 224);
 }
+
+/* COMMENT BECAUASE MERGING SUCKS */

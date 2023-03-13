@@ -433,21 +433,26 @@ font-size: 1.8rem;
   margin-bottom: 4vh;
 }
 
+.admin-see-content{
+  position: relative;
+}
+
 .see-form{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  min-height: 25vh;
 }
 
 .see-what {
-  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: start;
-  margin-left: 25px;
+  position: absolute;
+  left: 0;
+ border: 1px solid black;
+ padding: 10px 0px;
 }
 
 .see-radio {
@@ -457,5 +462,19 @@ font-size: 1.8rem;
 
 .submitbtn{
   width: 100%;
+}
 
+td, th {
+  outline: solid 1px black;
+}
+
+.order-list {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.order-list table {
+  width: 30vw;
+  text-align: center;
 }

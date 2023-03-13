@@ -504,11 +504,38 @@ margin-bottom: 10px;
 
 .products-a{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100vw;
+  row-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
 } 
 
 .products-a div {
-  background-color: red;
+  background-color: #ffdb81;
   height: 200px;
-  width: 200px;
+  width: 400px;
+  place-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+border-radius: 5vh;
+}
+
+
+.products-a li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.products-a li, .products-a h3 {
+  padding-left: 20px;
+}
+
+
+.flex-a {
+  display: flex;
+  flex-direction: row;
+}
+.filter-a {
+height: 70vh;
+width: 20vw;
 }

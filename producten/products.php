@@ -100,8 +100,8 @@
           try {
             $fullQuery = $db->prepare(
               "SELECT products.*, category.name AS Category, suppliers.name AS Supplier FROM products 
-             INNER JOIN category ON category.categoryid = products.categoryid 
-             INNER JOIN suppliers ON products.supplierid = suppliers.supplierid"
+               INNER JOIN category ON category.categoryid = products.categoryid 
+               INNER JOIN suppliers ON products.supplierid = suppliers.supplierid"
             );
             $fullQuery->execute();
           } catch (PDOexception $e) {

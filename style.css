@@ -2,10 +2,6 @@
   --heading-color: #ffdb81;
 }
 
-:root{
-  --heading-color: #ffdb81;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -538,4 +534,17 @@ border-radius: 5vh;
 .filter-a {
 height: 70vh;
 width: 20vw;
+}
+
+.multiple-footnote{
+  position: relative;
+}
+
+.multiple-footnote:hover:before{
+  content: "CTRL + Klikken voor meerdere opties";
+  position: absolute;
+  top: 0;
+  left: 150%;
+  z-index: 3;
+  width: 100%;
 }

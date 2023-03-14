@@ -15,6 +15,7 @@
     <!-- nav bar -->
     <?php
     include '../includes/nav.html';
+    require "../includes/connDatabase.php";
     ?>
   </header>
 
@@ -53,7 +54,6 @@
             }
             ;
 
-            require "../includes/connDatabase.php";
 
             try {
               $fullQuery = $db->prepare("INSERT INTO country (`name`, `continent`, `currency`) VALUES (:name, :continent, :currency)");
@@ -74,7 +74,7 @@
 
 
       <form method="post" action="">
-      <div class="admin-add">
+        <div class="admin-add">
           <h3>Voeg category toe</h3>
           <label for="category">naam category:</label>
           <input type="text" id="category" name="category" required />
@@ -83,8 +83,6 @@
           <?php
           if (isset($_POST["submit-c"])) {
             $category = $_POST["category"];
-
-            require "../includes/connDatabase.php";
 
             try {
               $fullQuery = $db->prepare("INSERT INTO category (`name`) VALUES (:name)");
@@ -97,6 +95,105 @@
 
             echo "<p>category: " . $category . " is toegevoegd aan de database</p>";
           }
+          ?>
+        </div>
+      </form>
+
+      <form method="post" action="">
+        <div class="admin-add">
+          <h3>Voeg product toe</h3>
+          <label for="product">Naam product:</label>
+          <input type="text" id="product" name="product-naam" required />
+          <label for="product">Leeftijd product: (optioneel)</label>
+          <input type="number" id="product" name="product-age" />
+          <label for="product">Soort product:</label>
+          <input type="text" id="product" name="product-type" required />
+          <label for="product">Smaak product:</label>
+          <input type="text" id="product" name="product-flav" required />
+          <label for="product">Prijs product:</label>
+          <input type="number" id="product" name="product-price" required />
+          <label for="product">Textuur product:</label>
+          <input type="text" id="product" name="product-texture" required />
+          <label for="product">Cat product:</label>
+          <select name="productcat" id="productcat" name="product-cat">
+            <?php
+            $retreiveCategories = $db->prepare("SELECT `name` FROM category");
+            $retreiveCategories->execute();
+            $categoryNames = $retreiveCategories->fetchAll();
+
+            foreach ($categoryNames as $categoryName) {
+              echo '<option class="<3 Berkhout" value="' . $categoryName['name'] . '">' . $categoryName['name'] . '</option>';
+
+            }
+            ?>
+          </select>
+          <label for="product">SupplierID:</label>
+          <input min="2" max="<?php $suppcount = $db->prepare("SELECT count(supplierid) FROM suppliers");
+          $suppcount->execute();
+          $totalsupp = $suppcount->fetch();
+          echo $totalsupp[0];
+          ?>" type="number" id="product" name="suppid" required />
+          <input class="submit-admin" type="submit" name="submit-p" id="submit-p" value="submit">
+
+
+          <?php
+          if (isset($_POST["submit-p"])) {
+            $productname = $_POST["product-naam"];
+            $producttype = $_POST["product-type"];
+            $productflav = $_POST["product-flav"];
+            $productprice = $_POST["product-price"];
+            $producttex = $_POST["product-texture"];
+            $productcat = $_POST["product-cat"];
+            $suppid = $_POST["suppid"];
+            try {
+              $grabcatid = $db->prepare("SELECT categoryid FROM category WHERE `name` = :name");
+            } catch (PDOException $e) {
+              die("FOUT IN SQL QUERY " . $e->getMessage());
+            }
+
+            $grabcatid->execute([":name" => $productcat]);
+            $catid = $grabcatid->fetch();
+
+
+            if ($_POST["product-age"] > 0) {
+              $productage = $_POST["product-age"];
+              try {
+                $addprod = $db->prepare("INSERT INTO products (`name`, age, `type`, flavor, price, texture, categoryid, supplierid) 
+                                        VALUES (:name, :age, :type, :flavor, :price, :texture, :categoryid, :supplierid)");
+              } catch (PDOException $e) {
+                die("FOUT IN SQL QUERY " . $e->getMessage());
+              }
+              $addprod->execute([
+                ":name" => $productname,
+                ":age" => $productage,
+                ":type" => $producttype,
+                ":flavor" => $productflav,
+                ":price" => $productprice,
+                ":texture" => $producttex,
+                ":categoryid" => $catid[0],
+                ":supplierid" => $suppid
+              ]);
+            } else {
+              try {
+                $addprod = $db->prepare("INSERT INTO products (`name`, age, `type`, flavor, price, texture, categoryid, supplierid) 
+                                        VALUES (:name, :age, :type, :flavor, :price, :texture, :categoryid, :supplierid)");
+              } catch (PDOException $e) {
+                die("FOUT IN SQL QUERY " . $e->getMessage());
+              }
+              $addprod->execute([
+                ":name" => $productname,
+                ":age" => null,
+                ":type" => $producttype,
+                ":flavor" => $productflav,
+                ":price" => $productprice,
+                ":texture" => $producttex,
+                ":categoryid" => $catid[0],
+                ":supplierid" => $suppid
+              ]);
+            }
+            ;
+          }
+          // echo "<p>product: " . $productname . " is toegevoegd aan de database</p>";
           ?>
         </div>
       </form>

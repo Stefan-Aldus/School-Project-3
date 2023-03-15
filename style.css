@@ -560,3 +560,26 @@ select,
   background-color: lightgray;
   color: rgb(59, 59, 59);
 }
+
+
+.order-list2 th, .order-list2 td {
+   
+    outline: solid 1px black;
+
+}
+
+
+
+.order-list2 {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.order-list2 table {
+  width: 30vw;
+  text-align: center;
+  margin-bottom: 30px;
+}

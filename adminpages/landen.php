@@ -36,6 +36,7 @@
                     <div>
                         <label for="continent">Filteren op continent:</label>
                         <select required name="continent" id="continent">
+                            <option value="*">Alle continenten</option>
                             <?php
                             $optionsQuery = $db->prepare("SELECT DISTINCT continent FROM country");
                             $optionsQuery->execute();
@@ -44,7 +45,6 @@
                                 echo "<option>" . $option["continent"] . "</option>";
                             }
                             ?>
-                            <option value="*">Alle continenten</option>
                         </select>
                     </div>
                     <input class="submitbtn" type="submit" value="Filter Gegevens">

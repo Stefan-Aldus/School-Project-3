@@ -30,28 +30,13 @@
             <img class="about-mk-pic" src="./img/mederwerker.png" alt="">
         </div>
 
-        <section class="Admin-see-content">
-            <div class="see-what">
-                <form class="see-form" method="POST" action="">
-                    <div>
-                        <label for="continent">Filteren op continent:</label>
-                        <select required name="continent" id="continent">
-                            <option value="*">Alle continenten</option>
-                            <?php
-                            $optionsQuery = $db->prepare("SELECT DISTINCT continent FROM country");
-                            $optionsQuery->execute();
-                            $options = $optionsQuery->fetchAll();
-                            foreach ($options as $option) {
-                                echo "<option>" . $option["continent"] . "</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <input class="submitbtn" type="submit" value="Filter Gegevens">
-                </form>
-            </div>
-        </section>
-        <section class="order-list small-margin">
+        <section class="country-stuff small-margin">
+            <form class="see-form" method="POST" action="">
+                <div>
+                    <input placeholder="Filteren op naam van land" type="text" name="countryname" id="name">
+                </div>
+                <!-- <input class="submitbtn" type="submit" value="Filter Gegevens"> -->
+            </form>
             <table>
                 <caption>Landen</caption>
                 <tr>
@@ -61,7 +46,7 @@
                     <th>Munteenheid</th>
                 </tr>
                 <?php
-                if (!isset($_POST["continent"]) || $_POST["continent"] === "*") {
+                if (!isset($_POST["countryname"]) || $_POST["countryname"] === "*") {
                     try {
                         $query = $db->prepare("SELECT * FROM country");
                         $query->execute();
@@ -69,10 +54,10 @@
                         exit($e->getMessage());
                     }
                 } else {
-                    $continent = $_POST["continent"];
+                    $countryname = $_POST["countryname"];
                     try {
-                        $query = $db->prepare("SELECT * FROM country WHERE continent = :continent");
-                        $query->execute([":continent" => $continent]);
+                        $query = $db->prepare("SELECT * FROM country WHERE `name` LIKE :countryname");
+                        $query->execute([":countryname" => '%' . $countryname . '%']);
                     } catch (PDOException $e) {
                         exit($e->getMessage());
                     }

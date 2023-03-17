@@ -442,6 +442,7 @@ font-size: 1.8rem;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  width: 30vw;
 }
 
 .see-what {
@@ -477,4 +478,16 @@ td, th {
 .order-list table {
   width: 30vw;
   text-align: center;
+}
+
+.country-stuff {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.see-form input {
+  width: 30vw;
 }

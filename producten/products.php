@@ -47,8 +47,9 @@
             $avgprc = $db->prepare("SELECT AVG(price) FROM products WHERE categoryid = :catid");
             $avgprc->execute([":catid" => $catName["categoryid"]]);
             $catavg = $avgprc->fetch();
+            $roundcatavg = round($catavg[0], 2);
             if ($catavg > 0) {
-              echo "<p>De gemiddelde prijs voor " . $catName["name"] . " is $" . $catavg[0] . "</p>";
+              echo "<p>De gemiddelde prijs voor " . $catName["name"] . " is $" . $roundcatavg . "</p>";
             } else {
               echo "<p>De gemiddelde prijs voor " . $catName["name"] . " is $0 </p>";
             }

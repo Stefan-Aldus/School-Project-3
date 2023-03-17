@@ -548,3 +548,14 @@ width: 20vw;
   z-index: 3;
   width: 100%;
 }
+.avg-price p{
+  padding-top: 2.5vh;
+  margin-bottom: 0.25rem;
+  text-align: center;
+  font-size: 0.88rem;
+}
+.avg-price > h2 {
+ font-size: inherit;
+ margin:0.5rem 0 0.5rem 0;
+ text-align: center;
+}

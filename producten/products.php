@@ -30,6 +30,25 @@
 
     <div class="flex-a">
       <section class="filter-a">
+        <section class="avg-price">
+          <h2>De gemiddelde prijs per product categorie is als volgt:</h2>
+          <?php
+          $allCats = $db->prepare("SELECT * from category");
+          $allCats->execute();
+          $catNames = $allCats->fetchAll();
+
+          foreach ($catNames as $catName) {
+            $avgprc = $db->prepare("SELECT AVG(price) FROM products WHERE categoryid = :catid");
+            $avgprc->execute([":catid" => $catName["categoryid"]]);
+            $catavg = $avgprc->fetch();
+            if ($catavg > 0) {
+              echo "<p>De gemiddelde prijs voor " . $catName["name"] . " is $" . $catavg[0] . "</p>";
+            } else {
+              echo "<p>De gemiddelde prijs voor " . $catName["name"] . " is $0 </p>";
+            }
+          }
+          ?>
+        </section>
         <form method="post" action="">
           <div class="filter-type">
             <label class="multiple-footnote" for="type">Type Kaas:</label>

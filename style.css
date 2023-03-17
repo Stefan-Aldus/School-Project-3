@@ -561,7 +561,7 @@ select,
   color: rgb(59, 59, 59);
 }
 
-
+/* start leverancier admin page */
 .order-list2 th, .order-list2 td {
    
     outline: solid 1px black;
@@ -582,4 +582,11 @@ select,
   width: 30vw;
   text-align: center;
   margin-bottom: 30px;
+}
+
+.order-list2 input {
+  width: 300px;
+  height: 25px;
+  padding-left: 10px;
+  margin-bottom: 10px;
 }

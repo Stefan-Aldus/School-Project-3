@@ -199,6 +199,55 @@
       </form>
 
 
+      <form method="post" action="">
+        <div class="admin-add">
+          <h3>Voeg Leverancier toe</h3>
+          <label for="suppliername">Naam leverancier:</label>
+          <input type="text" id="suppliername" name="suppliername" required />
+          <label for="adress">Adres leverancier:</label>
+          <input type="text" id="adress" name="adress" required />
+          <label for="country">Land:</label>
+          <select name="country-lz" id="country" -lz name="country-lz">
+            <?php
+            $findCountries = $db->prepare("SELECT * FROM country");
+            $findCountries->execute();
+            foreach ($findCountries as $country) {
+              echo '<option class="<3 Berkhout" value="' . $country['name'] . '">' . $country['name'] . '</option>';
+            }
+            ?>
+          </select>
+          <input class="submit-admin" type="submit" name="submit-lz" value="submit">
+          <?php
+
+          if (isset($_POST["submit-lz"])) {
+            $name = $_POST["suppliername"];
+            $adress = $_POST["adress"];
+            $countryName = $_POST["country-lz"];
+
+            try {
+              $fullQuery = $db->prepare("INSERT INTO suppliers (`name`, adress, countryid) VALUES (:name, :adress, :countryid)");
+              $findCountryId = $db->prepare("SELECT countryid FROM country WHERE `name` = :countryname");
+            } catch (PDOException $e) {
+              die("Fout bij verbinden met database: " . $e->getMessage());
+            }
+
+            $findCountryId->execute([':countryname' => $countryName]);
+            $countryId = $findCountryId->fetch()['countryid'];
+
+            $fullQuery->execute([
+              ":name" => $name,
+              ":adress" => $adress,
+              ":countryid" => $countryId
+            ]);
+
+            echo "<p>Leverancier: " . $name . " is toegevoegd aan de database</p>";
+          }
+          ?>
+        </div>
+      </form>
+
+
+
     </section>
 
   </main>

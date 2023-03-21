@@ -491,3 +491,35 @@ td, th {
 .see-form input {
   width: 30vw;
 }
+
+.select-which{
+  width: 100vw;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-which button{
+  width: 175px;
+  margin: 2vh 0;
+  padding: 15px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff7b6;
+}
+
+.select-which button:hover{
+  background-color: rgb(242, 242, 242);
+}
+
+.select-which a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.select-which *:not(h2){
+  cursor: pointer;
+}

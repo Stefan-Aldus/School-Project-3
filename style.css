@@ -492,6 +492,9 @@ footer {
 }
 /* COMMENT BECAUASE MERGING SUCKS */
 
+.admin-see-content{
+  position: relative;
+}
 
 /* start admin */
 
@@ -621,4 +624,90 @@ width: 20vw;
  font-size: inherit;
  margin:0.5rem 0 0.5rem 0;
  text-align: center;
+}
+.see-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 30vw;
+}
+
+.see-what {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: start;
+  position: absolute;
+  left: 0;
+ border: 1px solid black;
+ padding: 10px 0px;
+}
+
+.see-radio {
+  display: flex;
+  flex-direction: column;
+}
+
+.submitbtn{
+  width: 100%;
+}
+
+td, th {
+  outline: solid 1px black;
+}
+
+.order-list {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.order-list table {
+  width: 30vw;
+  text-align: center;
+}
+
+.country-stuff {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.see-form input {
+  width: 30vw;
+}
+
+.select-which{
+  width: 100vw;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-which button{
+  width: 175px;
+  margin: 2vh 0;
+  padding: 15px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff7b6;
+}
+
+.select-which button:hover{
+  background-color: rgb(242, 242, 242);
+}
+
+.select-which a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.select-which *:not(h2){
+  cursor: pointer;
 }

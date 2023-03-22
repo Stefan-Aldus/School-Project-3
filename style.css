@@ -1,4 +1,4 @@
-:root {
+:root{
   --heading-color: #ffdb81;
 }
 
@@ -491,3 +491,134 @@ footer {
   margin-bottom: 5vh;
 }
 /* COMMENT BECAUASE MERGING SUCKS */
+
+
+/* start admin */
+
+
+/* data toevoegen */
+.admin-add-content {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  flex-direction: start;
+  margin-top: 20px;
+  margin-left: 80px;
+  flex-direction: column;
+}
+
+.admin-add-content form {
+  margin-bottom: 40px;
+}
+
+.form-admin  {
+  display: flex;
+}
+
+.admin-add {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.admin-add h3 {
+margin-bottom: 10px;
+}
+
+.admin-add input {
+  margin-bottom: 10px;
+  padding-left: 5px;
+  height: 25px;
+  width: 20vw;
+  background-color: lightgray; 
+  border: none;
+}
+
+.submit-admin {
+  height: 50px;
+  border: none;
+  border-radius: 2vh;
+  background-color: lightgray;  
+  cursor: pointer;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+/* start producten */
+/* home */
+.about-p-a {
+  height: 40vh;
+  width: 100vw;
+  background-color: gray;
+  display: flex;
+
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  background-color: var(--heading-color);
+  background-color: var(--heading-color);
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.12);
+}
+
+.products-a{
+  display: grid;
+  width: 100vw;
+  row-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+} 
+
+.products-a div {
+  background-color: #ffdb81;
+  height: 200px;
+  width: 400px;
+  place-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+border-radius: 5vh;
+}
+
+
+.products-a li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.products-a li, .products-a h3 {
+  padding-left: 20px;
+}
+
+
+.flex-a {
+  display: flex;
+  flex-direction: row;
+}
+.filter-a {
+height: 70vh;
+width: 20vw;
+}
+
+.multiple-footnote{
+  position: relative;
+}
+
+.multiple-footnote:hover:before{
+  content: "CTRL + Klikken voor meerdere opties";
+  position: absolute;
+  top: 0;
+  left: 150%;
+  z-index: 3;
+  width: 100%;
+}
+.avg-price p{
+  padding-top: 2.5vh;
+  margin-bottom: 0.25rem;
+  text-align: center;
+  font-size: 0.88rem;
+}
+.avg-price > h2 {
+ font-size: inherit;
+ margin:0.5rem 0 0.5rem 0;
+ text-align: center;
+}

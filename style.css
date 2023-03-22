@@ -636,21 +636,12 @@ select,
   color: rgb(59, 59, 59);
 }
 
-/* start leverancier admin page */
-.order-list2 th, .order-list2 td {
-   
-
 .workerimg {
   height: 20vh;
   width: 20vh;
   margin-right: 6rem;
   margin-top: 1.5rem;
 }
-    outline: solid 1px black;
-
-}
-
-
 
 .order-list2 {
   width: 100vw;

@@ -48,9 +48,10 @@
                 if (!isset($_POST["categoryname"]) || $_POST["categoryname"] === "*") {
                     try {
                         $query = $db->prepare("
-                        SELECT category.*, COUNT(products.name) AS amount 
+                        SELECT category.*, COUNT(products.categoryid) AS amount 
                         FROM category 
-                        INNER JOIN products ON category.categoryid = products.categoryid
+                        LEFT JOIN products ON category.categoryid = products.categoryid
+                        GROUP BY category.categoryid
                         ");
                         $query->execute();
                     } catch (PDOException $e) {

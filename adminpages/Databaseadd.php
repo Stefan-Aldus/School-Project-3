@@ -245,7 +245,70 @@
           ?>
         </div>
       </form>
+      <form method="post" action="">
+        <div class="admin-add">
+          <h3>Voeg Klant toe</h3>
+          <label for="customername">Voornaam Klant:</label>
+          <input type="text" id="customername" name="customername" required />
+          <label for="customerlastname">Achternaam Klant:</label>
+          <input type="text" id="customerlastname" name="customerlastname" required />
+          <label for="customeremail">Email klant:</label>
+          <input type="text" id="customeremail" name="customeremail" required />
+          <label for="customercountry">Land v.d. klant:</label>
+          <input type="text" id="customercountry" name="customercountry" required />
+          <label for="customerprovince">Provincie v.d. klant:</label>
+          <input type="text" id="customerprovince" name="customerprovince" required />
+          <label for="customercity">Stad v.d. klant:</label>
+          <input type="text" id="customercity" name="customercity" required />
+          <label for="customeradress">Adress v.d. klant:</label>
+          <input type="text" id="customeradress" name="customeradress" required />
+          <label for="customerzip">Postcode v.d. klant:</label>
+          <input type="text" id="customerzip" name="customerzip" required />
+          <label for="customerphone">Telefoon Nr. v.d. klant:</label>
+          <input type="text" id="customerphone" name="customerphone" required />
+          <label for="customerdob">Geboortedatum v.d. klant:</label>
+          <input type="date" id="customerdob" name="customerdob" required />
+          <input class="submit- admin" type="submit" name="submit-cu" value="submit">
+          <?php
 
+          if (isset($_POST["submit-cu"])) {
+            $firstname = $_POST["customername"];
+            $lastname = $_POST["customerlastname"];
+            $email = $_POST["customeremail"];
+            $country = $_POST["customercountry"];
+            $province = $_POST["customerprovince"];
+            $city = $_POST["customercity"];
+            $adress = $_POST["customeradress"];
+            $zipcode = $_POST["customerzip"];
+            $phonenr = $_POST["customerphone"];
+            $dob = $_POST["customerdob"];
+
+            try {
+              $fullQuery = $db->prepare("INSERT INTO customers (firstname, lastname, email, country, province, city, adress, zipcode, phonenumber, birthday) 
+              VALUES (:firstname, :lastname, :email, :country, :province, :city, :adress, :zipcode, :phonenumber, :birthday)");
+            } catch (PDOException $e) {
+              die("Fout bij verbinden met database: " . $e->getMessage());
+            }
+
+            $fullQuery->execute([
+              ":firstname" => $firstname,
+              ":lastname" => $lastname,
+              ":email" => $email,
+              ":country" => $country,
+              ":province" => $province,
+              ":city" => $city,
+              ":adress" => $adress,
+              ":zipcode" => $zipcode,
+              ":phonenumber" => $phonenr,
+              ":birthday" => $dob
+            ]);
+
+
+            echo "<p>Klant: " . $firstname . " is toegevoegd aan de database</p>";
+          }
+          ?>
+        </div>
+      </form>
 
 
     </section>

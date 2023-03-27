@@ -80,6 +80,7 @@ main {
   margin-top: 7vh;
   display: flex;
   flex-direction: column;
+  background-color: ffdb8193;
 }
 
 .nav-ul {
@@ -292,6 +293,7 @@ footer {
   align-items: center;
   cursor: pointer;
 }
+  
 
 .sharp-h {
   background-color: rgb(248, 243, 213);
@@ -425,6 +427,79 @@ footer {
   margin-top: 4vh;
   margin-bottom: 4vh;
 }
+.belangrijkstemedewerkers1 {
+  background-color: var(--heading-color);
+  height: 20vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.12);
+}
+
+.belangrijkstemedewerkersstart {
+  width: 50vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
+}
+
+.belangrijkstemedewerkersstart h1 {
+  font-size: 2rem;
+}
+
+.belangrijkstemedewerkersstart p {
+  margin-top: 15px;
+}
+
+.medewerker-container {
+  display: flex;
+  max-height: 100;
+  width: 100vw;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.medewerker {
+  display: flex;
+  justify-content: space-between;
+  max-height: 30vh;
+  height: auto;
+  width: 100vw;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 16px 16px rgba(0, 0, 0, 0.12);
+}
+
+.medewerker p, .medewerker h2 {
+width: 50vw;
+margin-left: 20px;
+}
+
+.medewerker h2 {
+  font-size: 2rem;
+  margin-bottom: 1.2vh;
+}
+
+.medewerker p {
+  font-size: 1.2rem;
+  height: auto;
+}
+
+.medewerker p:not(:first-of-type) {
+  margin-top: 1.2vh;
+}
+
+.medewerker p:last-of-type {
+  margin-bottom: 5vh;
+}
+/* COMMENT BECAUASE MERGING SUCKS */
+
+.admin-see-content{
+  position: relative;
+}
 
 /* start admin */
 
@@ -541,14 +616,147 @@ footer {
   z-index: 3;
   width: 100%;
 }
-.avg-price p {
+
+.returnsection p {
+  margin: 2.8vh 0;
+  font-size: 1.15rem;
+}
+
+.returnsection p:last-of-type {
+  padding-bottom: 10vh;
+}
+
+select {
+  width: 20vw;
+}
+
+select,
+.Berkhout {
+  background-color: lightgray;
+  color: rgb(59, 59, 59);
+}
+
+.workerimg {
+  height: 20vh;
+  width: 20vh;
+  margin-right: 6rem;
+  margin-top: 1.5rem;
+}
+
+.order-list2 {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.order-list2 table {
+  width: 30vw;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.order-list2 input {
+  width: 300px;
+  height: 25px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.avg-price p{
   padding-top: 2.5vh;
   margin-bottom: 0.25rem;
   text-align: center;
   font-size: 0.88rem;
 }
 .avg-price > h2 {
-  font-size: inherit;
-  margin: 0.5rem 0 0.5rem 0;
+ font-size: inherit;
+ margin:0.5rem 0 0.5rem 0;
+ text-align: center;
+}
+.see-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 30vw;
+}
+
+.see-what {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: start;
+  position: absolute;
+  left: 0;
+ border: 1px solid black;
+ padding: 10px 0px;
+}
+
+.see-radio {
+  display: flex;
+  flex-direction: column;
+}
+
+.submitbtn{
+  width: 100%;
+}
+
+td, th {
+  outline: solid 1px black;
+}
+
+.order-list {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.order-list table {
+  width: 30vw;
   text-align: center;
+}
+
+.country-stuff {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.see-form input {
+  width: 30vw;
+}
+
+.select-which{
+  width: 100vw;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-which button{
+  width: 175px;
+  margin: 2vh 0;
+  padding: 15px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff7b6;
+}
+
+.select-which button:hover{
+  background-color: rgb(242, 242, 242);
+}
+
+.select-which a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.select-which *:not(h2){
+  cursor: pointer;
 }

@@ -17,6 +17,7 @@
 </head>
 
 <body>
+  
   <header class="main-head">
     <!-- nav bar -->
     <?php include '../includes/nav.html';
@@ -25,6 +26,14 @@
   </header>
 
   <main class="bg">
+  <div class="about-mk">
+            <div class="about-mk-title">
+                <h1>Admin Orders inzien</h1>
+                <p> Op deze pagina kunt u de Orders inzien die onze klanten hebben besteld!</p>
+
+            </div>
+            <img class="about-mk-pic" src="./img/mederwerker.png" alt="">
+        </div>
     <?php
     $statement = $db -> prepare("
     SELECT customers.firstname AS firstname, customers.customerid AS customerid, COUNT(orders.orderid) AS orders
@@ -37,7 +46,7 @@
     $result = $statement -> fetchAll();
     
     ?>
-
+<section class="country-stuff">
     <table >
       <caption>Spreiding Bestellingen</caption>
       <thead>
@@ -59,6 +68,7 @@ foreach ($result as $result2) {
 ?>
       </tbody>
     </table>
+</section>
   </main>
   
 </body>

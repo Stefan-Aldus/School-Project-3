@@ -32,7 +32,7 @@
             <a href="adminpages/bestellingen.php"> <button>Bestellingen</button></a>
             <a href="adminpages/leveranciers.php"><button>Leveranciers</button></a>
             <a href="adminpages/categorien.php"><button>Categorys</button></a>
-
+            <a href="adminpages/leverancierlanden.php"><button>Spreiding Leveranciers Per Land</button></a>
         </section>
     </main>
     <?php include '../includes/footer.html' ?>

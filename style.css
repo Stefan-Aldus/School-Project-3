@@ -760,3 +760,10 @@ td, th {
 .select-which *:not(h2){
   cursor: pointer;
 }
+
+/* start bestel regels pagina */
+.about-br-pic{
+  height: 25vh;
+  margin-right: 40px;
+  
+}

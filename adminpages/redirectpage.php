@@ -31,6 +31,7 @@
             <a href="adminpages/landen.php"><button>Landen</button></a>
             <a href="adminpages/bestellingen.php"> <button>Bestellingen</button></a>
             <a href="adminpages/leveranciers.php"><button>Leveranciers</button></a>
+            <a href="adminpages/bestelregels.php"><button>Bestelregels</button></a>
 
         </section>
     </main>

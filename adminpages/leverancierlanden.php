@@ -23,8 +23,8 @@
     <main class="bg">
         <div class="about-mk">
             <div class="about-mk-title">
-                <h1>Admin Landen inzien</h1>
-                <p> Op deze pagina kunt u de landen inzien waar onze kazen vandaan komen!</p>
+                <h1>Admin Spreiding Leveranciers inzien</h1>
+                <p> Op deze pagina kunt u de spreiding van de leveranciers inzien.</p>
 
             </div>
             <img class="about-mk-pic" src="./img/mederwerker.png" alt="">

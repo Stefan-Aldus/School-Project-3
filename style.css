@@ -433,6 +433,11 @@ font-size: 1.8rem;
   margin-bottom: 4vh;
 }
 
+.smaller-margin {
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
+}
+
 .admin-see-content{
   position: relative;
 }
@@ -522,4 +527,8 @@ td, th {
 
 .select-which *:not(h2){
   cursor: pointer;
+}
+
+.spread-style{
+  width: 50vw;
 }

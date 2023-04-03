@@ -16,6 +16,11 @@
     <?php
     include '../includes/nav.html';
     require "../includes/connDatabase.php";
+
+
+    if (isset($_GET['message'])) {
+      echo "<script> alert('" . $_GET['message'] . "')</script>";
+    }
     ?>
   </header>
 
@@ -32,7 +37,7 @@
     </div>
 
     <section class="admin-add-content">
-      <form method="post" action="">
+      <form method="post" action="filters/filterlandinput.php">
         <div class="admin-add">
           <h3>Voeg land toe</h3>
           <label for="land">naam land:</label>
@@ -42,64 +47,20 @@
           <label for="currency">Munteenheid afkorting ( 3 char):</label>
           <input type="text" id="currency" name="currency" required />
           <input class="submit-admin" type="submit" name="submit-l" id="submit-l" value="submit">
-
-          <?php
-          if (isset($_POST["submit-l"])) {
-            $country = $_POST["land"];
-            $continent = $_POST["continent"];
-            $currency = $_POST["currency"];
-
-            if (strlen($currency) > 3) {
-              exit("<p>U heeft te veel characters voor currency toegevoegd</p>");
-            }
-            ;
-
-
-            try {
-              $fullQuery = $db->prepare("INSERT INTO country (`name`, `continent`, `currency`) VALUES (:name, :continent, :currency)");
-            } catch (PDOException $e) {
-              die("Fout bij verbinden met database: " . $e->getMessage());
-            }
-            $fullQuery->execute([
-              ":name" => $country,
-              ":continent" => $continent,
-              ":currency" => $currency
-            ]);
-
-            echo "<p>land: " . $country . " is toegevoegd aan de database</p>";
-          }
-          ?>
         </div>
       </form>
 
 
-      <form method="post" action="">
+      <form method="post" action="filters/filtercategoryinput.php">
         <div class="admin-add">
           <h3>Voeg category toe</h3>
           <label for="category">naam category:</label>
           <input type="text" id="category" name="category" required />
           <input class="submit-admin" type="submit" name="submit-c" id="submit-c" value="submit">
-
-          <?php
-          if (isset($_POST["submit-c"])) {
-            $category = $_POST["category"];
-
-            try {
-              $fullQuery = $db->prepare("INSERT INTO category (`name`) VALUES (:name)");
-            } catch (PDOException $e) {
-              die("Fout bij verbinden met database: " . $e->getMessage());
-            }
-            $fullQuery->execute([
-              ":name" => $category
-            ]);
-
-            echo "<p>category: " . $category . " is toegevoegd aan de database</p>";
-          }
-          ?>
         </div>
       </form>
 
-      <form method="post" action="">
+      <form method="post" action="filters/filterproductinput.php">
         <div class="admin-add">
           <h3>Voeg product toe</h3>
           <label for="product">Naam product:</label>
@@ -145,14 +106,7 @@
             $producttex = $_POST["product-texture"];
             $productcat = $_POST["product-cat"];
             $suppid = $_POST["suppid"];
-            try {
-              $grabcatid = $db->prepare("SELECT categoryid FROM category WHERE `name` = :name");
-            } catch (PDOException $e) {
-              die("FOUT IN SQL QUERY " . $e->getMessage());
-            }
 
-            $grabcatid->execute([":name" => $productcat]);
-            $catid = $grabcatid->fetch();
 
 
             if ($_POST["product-age"] > 0) {
@@ -314,6 +268,11 @@
     </section>
 
   </main>
+  <?php
+
+  include "../includes/footer.html";
+  ?>
+
 </body>
 
 </html>

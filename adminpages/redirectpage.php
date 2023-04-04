@@ -30,11 +30,15 @@
             <h2>Selecteer welke data u wilt inzien</h2>
             <a href="adminpages/landen.php"><button>Landen</button></a>
             <a href="adminpages/bestellingen.php"> <button>Bestellingen</button></a>
-            <a href="adminpages/leveranciers.php"><button>Leveranciers</button></a>
-            <a href="adminpages/categorien.php"><button>Categorys</button></a>
-            <a href="adminpages/leverancierlanden.php"><button>Spreiding Leveranciers Per Land</button></a>
-            <a href="adminpages/Klantproducten.php"><button>Producten Per Klant</button></a>
             <a href="adminpages/bestelregels.php"><button>Bestelregels</button></a>
+            <a href="adminpages/Hoeveelheidorders.php"><button>Aantal Bestellingen</button></a>
+            <a href="adminpages/leveranciers.php"><button>Leveranciers</button></a>
+            <a href="adminpages/leveranciers.php"><button>Leveranciers (Andere Filter)</button></a>
+            <a href="adminpages/leverancierlanden.php"><button>Spreiding Leveranciers Per Land</button></a>
+            <a href="adminpages/avgpriceleveranciers.php"><button>Gemiddelde Prijs Per Leveranciers</button></a>
+            <a href="adminpages/categorien.php"><button>Categorys</button></a>
+            <a href="adminpages/klanten.php"><button>Klanten</button></a>
+            <a href="adminpages/Klantproducten.php"><button>Producten Per Klant</button></a>
 
         </section>
     </main>

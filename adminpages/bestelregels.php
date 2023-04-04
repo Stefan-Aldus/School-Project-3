@@ -52,6 +52,7 @@
           # order quarry
           $fullQuery2 = $db->prepare("SELECT * FROM orders");
           $fullQuery->execute();
+          $fullQuery2->execute();
         } catch (PDOexception $e) {
           die("Fout bij verbinden met database: " . $e->getMessage());
         }

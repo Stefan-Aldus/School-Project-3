@@ -37,7 +37,7 @@
     <div class="flex-a">
       <section class="filter-a">
         <section class="avg-price">
-          <h2>De gemiddelde prijs per product categorie is als volgt:</h2>
+          <h2 class="gemprodcss">De gemiddelde prijs per product categorie is als volgt:</h2>
           <?php
           $allCats = $db->prepare("SELECT * from category");
           $allCats->execute();
@@ -56,12 +56,12 @@
           }
           ?>
         </section>
-        <form method="post" action="">
+        <form class="filter-type-form" method="post" action="">
           <div class="filter-type">
             <label class="multiple-footnote" for="type">Type Kaas:</label>
             <div>
 
-              <select multiple name="type[]" id="selector">
+              <select multiple name="type[]" id="selector" class="searchstylejesse">>
                 <option value="Young">Jonge Kaas</option>
                 <option value="Old">Oude Kaas</option>
                 <option value="Sharp">Scherpe Kaas</option>
@@ -69,7 +69,7 @@
               </select>
             </div>
           </div>
-          <input type="submit" value="submit">
+          <input type="submit" value="Submit" class="searchsubmitjesse">
         </form>
       </section>
 

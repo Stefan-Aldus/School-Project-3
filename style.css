@@ -609,12 +609,28 @@ margin-left: 20px;
   width: 20vw;
 }
 
+.filter-type-form {
+  margin-top: 2rem;
+}
+
+.filter-type-form {
+  margin-top: 2rem;
+}
+
 .multiple-footnote {
   position: relative;
+  margin: 0 0 0 2rem;
+
 }
 
 .multiple-footnote:hover:before {
   content: "CTRL + Klikken voor meerdere opties";
+  background-color:#f5d37d;
+  border-color: black;
+  border-style: solid;
+  border-width: 0.01rem;
+  padding-left: 0.5rem;
+  border-radius: 7px;
   position: absolute;
   top: 0;
   left: 150%;
@@ -768,4 +784,31 @@ td, th {
 
 .spread-style{
   width: 50vw;
+}
+.searchstylejesse{
+  background-color: #e4c576;
+  width: 14rem;
+  overflow: hidden;
+  color: rgb(74, 74, 74);
+  margin: 0.1rem 0 0 2rem;
+  box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.12),
+  0 16px 16px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  border-color: rgb(74, 74, 74);
+}
+.searchsubmitjesse{
+  width: 14rem;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  margin: 0.135rem 0 0 2rem;
+  border-radius: 0.3rem;
+  border-width: 0.01rem;
+  background-color: #ebcb79;
+  box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.12),
+  0 16px 16px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  color: rgb(74, 74, 74);
+  border-color: rgb(74, 74, 74);
 }

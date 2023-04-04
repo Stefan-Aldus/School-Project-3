@@ -70,7 +70,7 @@ foreach ($result as $result2) {
     </table>
 </section>
   </main>
-  
+  <?php include '../includes/footer.php'; ?>
 </body>
 
 </html>

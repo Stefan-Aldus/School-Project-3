@@ -34,6 +34,8 @@
             <a href="adminpages/categorien.php"><button>Categorys</button></a>
             <a href="adminpages/leverancierlanden.php"><button>Spreiding Leveranciers Per Land</button></a>
             <a href="adminpages/Klantproducten.php"><button>Producten Per Klant</button></a>
+            <a href="adminpages/bestelregels.php"><button>Bestelregels</button></a>
+
         </section>
     </main>
     <?php include '../includes/footer.html' ?>

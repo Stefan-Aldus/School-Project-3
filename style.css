@@ -812,3 +812,10 @@ td, th {
   color: rgb(74, 74, 74);
   border-color: rgb(74, 74, 74);
 }
+
+/* start bestel regels pagina */
+.about-br-pic{
+  height: 25vh;
+  margin-right: 40px;
+  
+}

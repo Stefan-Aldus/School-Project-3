@@ -72,10 +72,10 @@
                         SELECT country.*, COUNT(suppliers.supplierid) AS suppliercount
                         FROM country 
                         INNER JOIN suppliers ON suppliers.countryid = country.countryid
-                        WHERE country.name LIKE '%:name%'
+                        WHERE country.name LIKE :name
                         GROUP BY country.name;");
                         // Executes it
-                        $query->execute([":countryname" => '%' . $countryname . '%']);
+                        $query->execute([":name" => '%' . $countryname . '%']);
                     } catch (PDOException $e) {
                         // Catches any errors
                         exit($e->getMessage());

@@ -16,6 +16,11 @@
     <?php
     include '../includes/nav.html';
     require "../includes/connDatabase.php";
+
+
+    if (isset($_GET['message'])) {
+      echo "<script> alert('" . $_GET['message'] . "')</script>";
+    }
     ?>
   </header>
 
@@ -32,7 +37,7 @@
     </div>
 
     <section class="admin-add-content">
-      <form method="post" action="">
+      <form method="post" action="filters/filterlandinput.php">
         <div class="admin-add">
           <h3>Voeg land toe</h3>
           <label for="land">naam land:</label>
@@ -42,64 +47,20 @@
           <label for="currency">Munteenheid afkorting ( 3 char):</label>
           <input type="text" id="currency" name="currency" required />
           <input class="submit-admin" type="submit" name="submit-l" id="submit-l" value="submit">
-
-          <?php
-          if (isset($_POST["submit-l"])) {
-            $country = $_POST["land"];
-            $continent = $_POST["continent"];
-            $currency = $_POST["currency"];
-
-            if (strlen($currency) > 3) {
-              exit("<p>U heeft te veel characters voor currency toegevoegd</p>");
-            }
-            ;
-
-
-            try {
-              $fullQuery = $db->prepare("INSERT INTO country (`name`, `continent`, `currency`) VALUES (:name, :continent, :currency)");
-            } catch (PDOException $e) {
-              die("Fout bij verbinden met database: " . $e->getMessage());
-            }
-            $fullQuery->execute([
-              ":name" => $country,
-              ":continent" => $continent,
-              ":currency" => $currency
-            ]);
-
-            echo "<p>land: " . $country . " is toegevoegd aan de database</p>";
-          }
-          ?>
         </div>
       </form>
 
 
-      <form method="post" action="">
+      <form method="post" action="filters/filtercategoryinput.php">
         <div class="admin-add">
           <h3>Voeg category toe</h3>
           <label for="category">naam category:</label>
           <input type="text" id="category" name="category" required />
           <input class="submit-admin" type="submit" name="submit-c" id="submit-c" value="submit">
-
-          <?php
-          if (isset($_POST["submit-c"])) {
-            $category = $_POST["category"];
-
-            try {
-              $fullQuery = $db->prepare("INSERT INTO category (`name`) VALUES (:name)");
-            } catch (PDOException $e) {
-              die("Fout bij verbinden met database: " . $e->getMessage());
-            }
-            $fullQuery->execute([
-              ":name" => $category
-            ]);
-
-            echo "<p>category: " . $category . " is toegevoegd aan de database</p>";
-          }
-          ?>
         </div>
       </form>
 
-      <form method="post" action="">
+      <form method="post" action="filters/filterproductinput.php">
         <div class="admin-add">
           <h3>Voeg product toe</h3>
           <label for="product">Naam product:</label>
@@ -136,70 +97,12 @@
           <input class="submit-admin" type="submit" name="submit-p" id="submit-p" value="submit">
 
 
-          <?php
-          if (isset($_POST["submit-p"])) {
-            $productname = $_POST["product-naam"];
-            $producttype = $_POST["product-type"];
-            $productflav = $_POST["product-flav"];
-            $productprice = $_POST["product-price"];
-            $producttex = $_POST["product-texture"];
-            $productcat = $_POST["product-cat"];
-            $suppid = $_POST["suppid"];
-            try {
-              $grabcatid = $db->prepare("SELECT categoryid FROM category WHERE `name` = :name");
-            } catch (PDOException $e) {
-              die("FOUT IN SQL QUERY " . $e->getMessage());
-            }
-
-            $grabcatid->execute([":name" => $productcat]);
-            $catid = $grabcatid->fetch();
-
-
-            if ($_POST["product-age"] > 0) {
-              $productage = $_POST["product-age"];
-              try {
-                $addprod = $db->prepare("INSERT INTO products (`name`, age, `type`, flavor, price, texture, categoryid, supplierid) 
-                                        VALUES (:name, :age, :type, :flavor, :price, :texture, :categoryid, :supplierid)");
-              } catch (PDOException $e) {
-                die("FOUT IN SQL QUERY " . $e->getMessage());
-              }
-              $addprod->execute([
-                ":name" => $productname,
-                ":age" => $productage,
-                ":type" => $producttype,
-                ":flavor" => $productflav,
-                ":price" => $productprice,
-                ":texture" => $producttex,
-                ":categoryid" => $catid[0],
-                ":supplierid" => $suppid
-              ]);
-            } else {
-              try {
-                $addprod = $db->prepare("INSERT INTO products (`name`, age, `type`, flavor, price, texture, categoryid, supplierid) 
-                                        VALUES (:name, :age, :type, :flavor, :price, :texture, :categoryid, :supplierid)");
-              } catch (PDOException $e) {
-                die("FOUT IN SQL QUERY " . $e->getMessage());
-              }
-              $addprod->execute([
-                ":name" => $productname,
-                ":age" => null,
-                ":type" => $producttype,
-                ":flavor" => $productflav,
-                ":price" => $productprice,
-                ":texture" => $producttex,
-                ":categoryid" => $catid[0],
-                ":supplierid" => $suppid
-              ]);
-            }
-            ;
-          }
-          // echo "<p>product: " . $productname . " is toegevoegd aan de database</p>";
-          ?>
+          
         </div>
       </form>
 
 
-      <form method="post" action="">
+      <form method="post" action="filters/filtersupplierinput.php">
         <div class="admin-add">
           <h3>Voeg Leverancier toe</h3>
           <label for="suppliername">Naam leverancier:</label>
@@ -217,32 +120,6 @@
             ?>
           </select>
           <input class="submit-admin" type="submit" name="submit-lz" value="submit">
-          <?php
-
-          if (isset($_POST["submit-lz"])) {
-            $name = $_POST["suppliername"];
-            $adress = $_POST["adress"];
-            $countryName = $_POST["country-lz"];
-
-            try {
-              $fullQuery = $db->prepare("INSERT INTO suppliers (`name`, adress, countryid) VALUES (:name, :adress, :countryid)");
-              $findCountryId = $db->prepare("SELECT countryid FROM country WHERE `name` = :countryname");
-            } catch (PDOException $e) {
-              die("Fout bij verbinden met database: " . $e->getMessage());
-            }
-
-            $findCountryId->execute([':countryname' => $countryName]);
-            $countryId = $findCountryId->fetch()['countryid'];
-
-            $fullQuery->execute([
-              ":name" => $name,
-              ":adress" => $adress,
-              ":countryid" => $countryId
-            ]);
-
-            echo "<p>Leverancier: " . $name . " is toegevoegd aan de database</p>";
-          }
-          ?>
         </div>
       </form>
       <form method="post" action="">
@@ -314,6 +191,11 @@
     </section>
 
   </main>
+  <?php
+
+  include "../includes/footer.html";
+  ?>
+
 </body>
 
 </html>

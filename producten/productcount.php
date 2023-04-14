@@ -26,15 +26,15 @@
     <section class="order-list2 small-margin">
     <?php
     require '../includes/connDatabase.php';
-
+// sql query that fetches the amount of products that there are in the database
     try{
       $fullQuery = $db->prepare("SELECT category.name AS 'Categorie' , COUNT(*) AS 'Aantal' FROM products INNER JOIN category ON category.categoryid = products.categoryid GROUP BY category.name;");
     }
-
+// This line of code will give an error message if the site cant connect to the database
     catch (PDOexception $e) {
       die("Fout bij verbinden met database: " . $e->getMessage());
     }
-
+    // Executes a query, and retrieves the result and stores it in a variable
     $fullQuery->execute();
     $result = $fullQuery->fetchall(PDO::FETCH_ASSOC);
     ?>
@@ -47,6 +47,7 @@
       </thead>
       <tbody>
         <?php
+        // php query table that puts the sql query results into tables
          if ($fullQuery->rowCount() > 0) {
           foreach ($result as $row) {
             echo "<tr><td>" . $row["Categorie"] . "</td>";

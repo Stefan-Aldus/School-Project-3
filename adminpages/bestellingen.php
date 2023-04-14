@@ -57,27 +57,34 @@
                     <th>Price</th>
                 </tr>
                 <?php
+                // checking if the fromdate has a date put inn
                 if (!isset($_POST["fromdate"])) {
+                    // try to make a Query out of it
                     try {
                         $query = $db->prepare("SELECT * FROM orders");
                         $query->execute();
+                        // if the Query fails get a error msg
                     } catch (PDOException $e) {
                         exit($e->getMessage());
                     }
+                    // if no date is submitted get the current date
                 } else {
                     $toDate = $_POST["todate"];
                     $fromDate = $_POST["fromdate"];
                     $formattedToDate = date('Y-m-d', strtotime($toDate));
                     $formattedFromDate = date('Y-m-d', strtotime($fromDate));
+                    // Defines a Query with the current date
                     try {
                         $query = $db->prepare("SELECT * FROM orders WHERE `date` BETWEEN :fromdate AND :todate");
                         $query->execute([":fromdate" => $formattedFromDate, ":todate" => $formattedToDate]);
+                        // if it can't define a Query activate the catch with a error msg
                     } catch (PDOException $e) {
                         exit($e->getMessage());
                     }
                 }
-
+                 
                 $orders = $query->fetchAll();
+                // for each result echo the following
                 foreach ($orders as $order) {
                     echo '<tr>';
                     echo '<td>' . $order["orderid"] . '</td>';

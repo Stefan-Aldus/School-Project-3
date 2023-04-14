@@ -39,10 +39,11 @@
         <section class="avg-price">
           <h2 class="gemprodcss">De gemiddelde prijs per product categorie is als volgt:</h2>
           <?php
+          //Grabs all the categories
           $allCats = $db->prepare("SELECT * from category");
           $allCats->execute();
           $catNames = $allCats->fetchAll();
-
+          //Does the math and echos the average price per category
           foreach ($catNames as $catName) {
             $avgprc = $db->prepare("SELECT AVG(price) FROM products WHERE categoryid = :catid");
             $avgprc->execute([":catid" => $catName["categoryid"]]);

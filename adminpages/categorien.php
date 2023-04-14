@@ -45,7 +45,9 @@
                     <th>Aantal Producten</th>
                 </tr>
                 <?php
+                // it checks if the cat name has been set or not
                 if (!isset($_POST["categoryname"]) || $_POST["categoryname"] === "*") {
+                    // try's to define a Query
                     try {
                         $query = $db->prepare("
                         SELECT category.*, COUNT(products.categoryid) AS amount 
@@ -54,11 +56,14 @@
                         GROUP BY category.categoryid
                         ");
                         $query->execute();
+                        // if the Query can't be defined it will activate the catch with the error msg
                     } catch (PDOException $e) {
                         exit($e->getMessage());
                     }
+                    // if it has't been set it will activate the filter by showing everything
                 } else {
                     $categoryname = $_POST["categoryname"];
+                    // try's to define a Query
                     try {
                         $query = $db->prepare("
                         SELECT category.*, COUNT(products.categoryid) AS amount 
@@ -67,12 +72,14 @@
                         WHERE category.name LIKE :categoryname
                         ");
                         $query->execute([":categoryname" => '%' . $categoryname . '%']);
+                        // if the Query can't be defined it will activate the catch with the error msg
                     } catch (PDOException $e) {
                         exit($e->getMessage());
                     }
                 }
-
+                //  fetches all results into categories
                 $categories = $query->fetchAll();
+                // for each catorgory it echo's all the information
                 foreach ($categories as $category) {
                     echo '<tr>';
                     echo '<td>' . $category["categoryid"] . '</td>';

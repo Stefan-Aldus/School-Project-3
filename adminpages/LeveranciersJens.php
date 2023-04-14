@@ -63,10 +63,12 @@
         try {
           // Retrieves products and suppliers
           $fullQuery = $db->prepare(
-            "SELECT products.*, suppliers.name AS suppname, category.name AS catname FROM products 
-              INNER JOIN suppliers ON products.supplierid = suppliers.supplierid 
-              INNER JOIN category ON category.categoryid = products.categoryid
-              WHERE suppliers.name LIKE :name"
+            "SELECT products.*, suppliers.name AS suppname, category.name AS catname 
+            FROM products 
+            INNER JOIN suppliers ON products.supplierid = suppliers.supplierid 
+            INNER JOIN category ON category.categoryid = products.categoryid
+            WHERE suppliers.name LIKE :name
+            ORDER BY products.productid ASC"
           );
 
           // Catches any exceptions and stops the program
@@ -81,17 +83,33 @@
         }
         $results = $fullQuery->fetchall(PDO::FETCH_ASSOC);
 
+
         foreach ($results as $result) {
-          echo '<tr>';
-          echo '<td>' . $result["productid"] . '</td>';
-          echo '<td>' . $result["age"] . '</td>';
-          echo '<td>' . $result["type"] . '</td>';
-          echo '<td>' . $result["flavor"] . '</td>';
-          echo '<td>' . $result["price"] . '</td>';
-          echo '<td>' . $result["texture"] . '</td>';
-          echo '<td>' . $result["suppname"] . '</td>';
-          echo "<td>" . $result["catname"] . "</td>";
-          echo '</tr>';
+          if ($result["texture"] != null) {
+            echo '<tr>';
+            echo '<td>' . $result["productid"] . '</td>';
+            echo '<td>' . $result["name"] . '</td>';
+            echo '<td>' . $result["age"] . '</td>';
+            echo '<td>' . $result["type"] . '</td>';
+            echo '<td>' . $result["flavor"] . '</td>';
+            echo '<td>' . $result["price"] . '</td>';
+            echo '<td>' . $result["texture"] . '</td>';
+            echo "<td>" . $result["suppname"] . "</td>";
+            echo "<td>" . $result["catname"] . "</td>";
+            echo '</tr>';
+          } else {
+            echo '<tr>';
+            echo '<td>' . $result["productid"] . '</td>';
+            echo '<td>' . $result["name"] . '</td>';
+            echo '<td>' . "N.V.T." . '</td>';
+            echo '<td>' . $result["type"] . '</td>';
+            echo '<td>' . $result["flavor"] . '</td>';
+            echo '<td>' . $result["price"] . '</td>';
+            echo '<td>' . "N.V.T" . '</td>';
+            echo "<td>" . $result["suppname"] . "</td>";
+            echo "<td>" . $result["catname"] . "</td>";
+            echo '</tr>';
+          }
         }
         ?>
       </table>

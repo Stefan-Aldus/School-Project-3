@@ -67,7 +67,6 @@ session_start();
 </main>
 
 <?php 
-include '../includes/mailscript.php';
 include '../includes/footer.html'; 
 ?>
 </body>

@@ -12,6 +12,7 @@
 
 <body>
   <?php
+  //starts session
   session_start();
   ?>
 

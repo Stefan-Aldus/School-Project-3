@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <!-- session start -->
 <?php
  session_start();
 ?>

@@ -13,10 +13,11 @@
 <body>
 
 <?php
+//Session start
 session_start();
 
 
-
+//Fetching the variables with the isset post
       if(isset($_POST["submit"])) {
            $_SESSION["name"] = $_POST["name"];
            $_SESSION["email"] = $_POST["email"];

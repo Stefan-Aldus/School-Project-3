@@ -29,21 +29,19 @@
 
 
       <?php
-      # uitleg jesse
-      # require maakt connectie met database
       require "../includes/connDatabase.php";
 
-      # een query maken en proberen
+      # try's to make a Query
       try {
         $fullQuery = $db->prepare("SELECT DISTINCT supplierid, AVG(price), FORMAT(AVG(price) ,2) as avgprice FROM products GROUP BY supplierid");
       }
-      # de catch als hij niet werkt
+      # A catch if the try doesnt work for some reason
       catch (PDOexception $e) {
         die("Fout bij verbinden met database: " . $e->getMessage());
       }
 
 
-      #stap 3 de quarry uit voeren
+      // executing the Query
       $fullQuery->execute();
       $result = $fullQuery->fetchall(PDO::FETCH_ASSOC);
       ?>
@@ -56,14 +54,14 @@
         <tbody>
 
           <?php
-          # checken of er resultaat is
+          # checking if the row count is higher then 0 if so there is a result
           if ($fullQuery->rowCount() > 0) {
-            # voor elke regel in phpmyadmind sql database result
+            # for each row in phpmyadmin database echo the following
             foreach ($result as $row) {
               echo "<tr><td>" . $row["supplierid"] . "</td>";
               echo "<td>" . $row["avgprice"] . "</td></tr>";
             }
-
+          // if no results echo 'Geen resultaten gevonden'
           } else {
             echo "Geen resultaten gevonden";
           }

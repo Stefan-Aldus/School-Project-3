@@ -53,6 +53,7 @@
           $fullQuery2 = $db->prepare("SELECT * FROM orders");
           $fullQuery->execute();
           $fullQuery2->execute();
+          // if Querry doesnt work activate the catch with the error msg
         } catch (PDOexception $e) {
           die("Fout bij verbinden met database: " . $e->getMessage());
         }
@@ -74,20 +75,20 @@
 
           $fullQuery->execute([":productname" => $_POST["filterbs"]]);
           $fullQuery2->execute([":productname" => $_POST["filterbs"]]);
+          // if Querry doesnt work activate the catch with the error msg
         } catch (PDOexception $e) {
           die("Fout bij verbinden met database: " . $e->getMessage());
         }
       }
 
-
+      // fetches all the result
       $result = $fullQuery->fetchall(PDO::FETCH_ASSOC);
       $result2 = $fullQuery2->fetchall(PDO::FETCH_ASSOC);
 
-
+      // checks if row count is higher then 0
       if ($fullQuery->rowCount() > 0) {
-
+        // if its higher then 0 then is echo's the table
         foreach ($result2 as $order) {
-          # filmnaam, regisseur, releasejaar etc moeten gelijk zijn aan de namen die gebruikt zijn in de query
           echo "<table>";
 
           echo "<thead><th> OrderID: " . $order["orderid"] . "</th>";
@@ -102,8 +103,10 @@
           echo "</thead>";
           echo "<tbody>";
           echo "<tr>";
-
+         
+          // this does the same as the one above except it does it so it can retrieve data about the products
           foreach ($result as $orderrule)
+          // this makes sure the right products get put in the right supplier table
             if ($order["orderid"] == $orderrule["orderid"]) {
               echo "<td>" . $orderrule["productname"] . "</td>";
               echo "<td> " . $orderrule["productid"] . "</td>";
@@ -117,7 +120,7 @@
 
 
         }
-
+        // if no results are found it echo's 'geen resultaten gevonden'
       } else {
         echo "Geen resultaten gevonden";
       }

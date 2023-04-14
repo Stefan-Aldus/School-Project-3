@@ -17,7 +17,8 @@
     include '../includes/nav.html';
     require "../includes/connDatabase.php";
 
-
+    // gets the msg that has been set in one of the filters.php
+    // and echo's it with JavaScript
     if (isset($_GET['message'])) {
       echo "<script> alert('" . $_GET['message'] . "')</script>";
     }
@@ -78,10 +79,11 @@
           <label for="product">Cat product:</label>
           <select name="productcat" id="productcat" name="product-cat">
             <?php
+            // defines a Query for catorgory's
             $retreiveCategories = $db->prepare("SELECT `name` FROM category");
             $retreiveCategories->execute();
             $categoryNames = $retreiveCategories->fetchAll();
-
+            // for each catorgory it will echo it in the select
             foreach ($categoryNames as $categoryName) {
               echo '<option class="<3 Berkhout" value="' . $categoryName['name'] . '">' . $categoryName['name'] . '</option>';
 
@@ -89,6 +91,7 @@
             ?>
           </select>
           <label for="product">SupplierID:</label>
+          <!-- defines a Query to count the amount of supllies -->
           <input min="2" max="<?php $suppcount = $db->prepare("SELECT count(supplierid) FROM suppliers");
           $suppcount->execute();
           $totalsupp = $suppcount->fetch();
@@ -112,8 +115,10 @@
           <label for="country">Land:</label>
           <select name="country-lz" id="country" -lz name="country-lz">
             <?php
+            // defines a Query for all country's
             $findCountries = $db->prepare("SELECT * FROM country");
             $findCountries->execute();
+            // for each country result it will echo the country name into the select
             foreach ($findCountries as $country) {
               echo '<option class="<3 Berkhout" value="' . $country['name'] . '">' . $country['name'] . '</option>';
             }
@@ -146,44 +151,8 @@
           <label for="customerdob">Geboortedatum v.d. klant:</label>
           <input type="date" id="customerdob" name="customerdob" required />
           <input class="submit- admin" type="submit" name="submit-cu" value="submit">
-          <?php
-
-          if (isset($_POST["submit-cu"])) {
-            $firstname = $_POST["customername"];
-            $lastname = $_POST["customerlastname"];
-            $email = $_POST["customeremail"];
-            $country = $_POST["customercountry"];
-            $province = $_POST["customerprovince"];
-            $city = $_POST["customercity"];
-            $adress = $_POST["customeradress"];
-            $zipcode = $_POST["customerzip"];
-            $phonenr = $_POST["customerphone"];
-            $dob = $_POST["customerdob"];
-
-            try {
-              $fullQuery = $db->prepare("INSERT INTO customers (firstname, lastname, email, country, province, city, adress, zipcode, phonenumber, birthday) 
-              VALUES (:firstname, :lastname, :email, :country, :province, :city, :adress, :zipcode, :phonenumber, :birthday)");
-            } catch (PDOException $e) {
-              die("Fout bij verbinden met database: " . $e->getMessage());
-            }
-
-            $fullQuery->execute([
-              ":firstname" => $firstname,
-              ":lastname" => $lastname,
-              ":email" => $email,
-              ":country" => $country,
-              ":province" => $province,
-              ":city" => $city,
-              ":adress" => $adress,
-              ":zipcode" => $zipcode,
-              ":phonenumber" => $phonenr,
-              ":birthday" => $dob
-            ]);
-
-
-            echo "<p>Klant: " . $firstname . " is toegevoegd aan de database</p>";
-          }
-          ?>
+           
+          
         </div>
       </form>
 

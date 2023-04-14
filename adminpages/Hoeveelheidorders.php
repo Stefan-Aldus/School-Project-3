@@ -21,6 +21,7 @@
   <header class="main-head">
     <!-- nav bar -->
     <?php include '../includes/nav.html';
+    // makes connection with database
     require '../includes/connDatabase.php';
     ?>
   </header>
@@ -35,6 +36,7 @@
             <img class="about-mk-pic" src="./img/mederwerker.png" alt="">
         </div>
     <?php
+    // defines a Query for retrieving customer DataBase
     $statement = $db -> prepare("
     SELECT customers.firstname AS firstname, customers.customerid AS customerid, COUNT(orders.orderid) AS orders
     FROM customers 
@@ -42,7 +44,7 @@
     GROUP BY customers.customerid;
     ");
     $statement -> execute();
-
+    // Fethes all results
     $result = $statement -> fetchAll();
     
     ?>
@@ -58,6 +60,7 @@
       </thead>
       <tbody>
 <?php
+// echo's for each customer in the database all the information
 foreach ($result as $result2) {
   echo '<tr>';
   echo '<td>' . $result2["firstname"] . '</td>';

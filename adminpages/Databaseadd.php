@@ -97,63 +97,12 @@
           <input class="submit-admin" type="submit" name="submit-p" id="submit-p" value="submit">
 
 
-          <?php
-          if (isset($_POST["submit-p"])) {
-            $productname = $_POST["product-naam"];
-            $producttype = $_POST["product-type"];
-            $productflav = $_POST["product-flav"];
-            $productprice = $_POST["product-price"];
-            $producttex = $_POST["product-texture"];
-            $productcat = $_POST["product-cat"];
-            $suppid = $_POST["suppid"];
-
-
-
-            if ($_POST["product-age"] > 0) {
-              $productage = $_POST["product-age"];
-              try {
-                $addprod = $db->prepare("INSERT INTO products (`name`, age, `type`, flavor, price, texture, categoryid, supplierid) 
-                                        VALUES (:name, :age, :type, :flavor, :price, :texture, :categoryid, :supplierid)");
-              } catch (PDOException $e) {
-                die("FOUT IN SQL QUERY " . $e->getMessage());
-              }
-              $addprod->execute([
-                ":name" => $productname,
-                ":age" => $productage,
-                ":type" => $producttype,
-                ":flavor" => $productflav,
-                ":price" => $productprice,
-                ":texture" => $producttex,
-                ":categoryid" => $catid[0],
-                ":supplierid" => $suppid
-              ]);
-            } else {
-              try {
-                $addprod = $db->prepare("INSERT INTO products (`name`, age, `type`, flavor, price, texture, categoryid, supplierid) 
-                                        VALUES (:name, :age, :type, :flavor, :price, :texture, :categoryid, :supplierid)");
-              } catch (PDOException $e) {
-                die("FOUT IN SQL QUERY " . $e->getMessage());
-              }
-              $addprod->execute([
-                ":name" => $productname,
-                ":age" => null,
-                ":type" => $producttype,
-                ":flavor" => $productflav,
-                ":price" => $productprice,
-                ":texture" => $producttex,
-                ":categoryid" => $catid[0],
-                ":supplierid" => $suppid
-              ]);
-            }
-            ;
-          }
-          // echo "<p>product: " . $productname . " is toegevoegd aan de database</p>";
-          ?>
+          
         </div>
       </form>
 
 
-      <form method="post" action="">
+      <form method="post" action="filters/filtersupplierinput.php">
         <div class="admin-add">
           <h3>Voeg Leverancier toe</h3>
           <label for="suppliername">Naam leverancier:</label>
@@ -171,32 +120,6 @@
             ?>
           </select>
           <input class="submit-admin" type="submit" name="submit-lz" value="submit">
-          <?php
-
-          if (isset($_POST["submit-lz"])) {
-            $name = $_POST["suppliername"];
-            $adress = $_POST["adress"];
-            $countryName = $_POST["country-lz"];
-
-            try {
-              $fullQuery = $db->prepare("INSERT INTO suppliers (`name`, adress, countryid) VALUES (:name, :adress, :countryid)");
-              $findCountryId = $db->prepare("SELECT countryid FROM country WHERE `name` = :countryname");
-            } catch (PDOException $e) {
-              die("Fout bij verbinden met database: " . $e->getMessage());
-            }
-
-            $findCountryId->execute([':countryname' => $countryName]);
-            $countryId = $findCountryId->fetch()['countryid'];
-
-            $fullQuery->execute([
-              ":name" => $name,
-              ":adress" => $adress,
-              ":countryid" => $countryId
-            ]);
-
-            echo "<p>Leverancier: " . $name . " is toegevoegd aan de database</p>";
-          }
-          ?>
         </div>
       </form>
       <form method="post" action="">

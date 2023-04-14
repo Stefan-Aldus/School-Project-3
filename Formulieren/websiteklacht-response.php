@@ -16,7 +16,7 @@
 session_start();
 
 
-
+      //Makes the submit button submit the information given into the database or say that youve gotten here in the wrong way
       if(isset($_POST["submit"])) {
            $_SESSION["name"] = $_POST["name"];
            $_SESSION["email"] = $_POST["email"];
@@ -64,8 +64,7 @@ session_start();
 
 </main>
 
-<?php 
-include '../includes/mailscript.php';
+<?php
 include '../includes/footer.html'; 
 ?>
 </body>

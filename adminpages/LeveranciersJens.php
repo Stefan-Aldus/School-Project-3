@@ -39,121 +39,62 @@
       </form>
 
 
+      <table>
+        <caption>Product Leveranciers</caption>
+        <tr>
+          <th>ProductID</th>
+          <th>Product Name</th>
+          <th>Product Age</th>
+          <th>Product Type</th>
+          <th>Product Flavor</th>
+          <th>Product Price</th>
+          <th>Product Texture</th>
+          <th>Leverancier</th>
+          <th>Categorie</th>
+        </tr>
 
-      <?php
+        <?php
 
-      require "../includes/connDatabase.php";
-      #2 een query definieren
-      
-
-      // Tries the queries reuired for the retrieval of the suppliers 
-      try {
-        // Retrieves suppliers
-        $fullQuery = $db->prepare("SELECT suppliers.*, country.name AS countryname FROM `suppliers` INNER JOIN country ON country.countryid = suppliers.countryid WHERE country.countryid = suppliers.countryid; ");
-        // Retrieves products
-        $fullQuery2 = $db->prepare("SELECT * FROM products");
-        // Retrieves suppliers with a  LIKE clause
-        $fullQuery3 = $db->prepare("SELECT suppliers.*, country.name AS countryname FROM `suppliers` INNER JOIN country ON country.countryid = suppliers.countryid WHERE country.countryid = suppliers.countryid AND country.name LIKE :name; ");
+        require "../includes/connDatabase.php";
+        #2 een query definieren
         
-        // Catches any exceptions and stops the program
-      } catch (PDOexception $e) {
-        die("Fout bij verbinden met database: " . $e->getMessage());
-      }
 
-      // Executing the first query (Selecting Suppliers)
-      $fullQuery->execute();
+        // Tries the queries reuired for the retrieval of the suppliers and products
+        try {
+          // Retrieves products and suppliers
+          $fullQuery = $db->prepare(
+            "SELECT products.*, suppliers.name AS suppname, category.name AS catname FROM products 
+              INNER JOIN suppliers ON products.supplierid = suppliers.supplierid 
+              INNER JOIN category ON category.categoryid = products.categoryid
+              WHERE suppliers.name LIKE :name"
+          );
 
-      //  Executing the second query (Selecting Products)
-      $fullQuery2->execute();
-
-      // Retrieves the results from the first and second query
-      $result = $fullQuery->fetchall(PDO::FETCH_ASSOC);
-      $result2 = $fullQuery2->fetchall(PDO::FETCH_ASSOC);
-
-      // Checks if the search is set
-      if (isset($_POST["search"])) {
-        // Sets the value as the search item
-        $value = $_POST["search"];
-        // Executes the third query (same as first) but with a LIKE clause and stores the result
-        $fullQuery3->execute([":name" => "%" . $value . "%"]);
-        $result3 = $fullQuery3->fetchall();
-        // Checks if the first query has more than 0 results
-        if ($fullQuery->rowCount() > 0) {
-
-          // Executes a foreach loopthat stores the results from the third query as a variable
-          foreach ($result3 as $row) {
-            
-            // Echoes the results in a table
-            echo "<table>";
-
-            echo "<thead><th> Naam leverancier: " . $row["name"] . "</th>";
-            echo "<th> Naam land: " . $row["countryname"] . "</th>";
-            echo "<th> adress: " . $row["adress"] . "</th>";
-            echo "</thead>";
-            echo "<th> Naam product:  </th>";
-            echo "<th>Type / smaak </th>";
-            echo "<th> Prijs: product </th>";
-            echo "</thead>";
-            echo "<tbody>";
-            echo "<tr>";
-
-            // Echoes the products as a table
-            foreach ($result2 as $row2)
-              if ($row["supplierid"] == $row2["supplierid"]) {
-                echo "<td>" . $row2["name"] . "</td>";
-                echo "<td> " . $row2["flavor"] . "</td>";
-                echo "<td> €" . $row2["price"] . "</td>";
-                echo "</tr>";
-              }
-
-            echo "</tbody>";
-            echo "</table>";
-
-
-          }
-
+          // Catches any exceptions and stops the program
+        } catch (PDOexception $e) {
+          die("Fout bij verbinden met database: " . $e->getMessage());
+        }
+        //  Executing the query
+        if (!isset($_POST["search"])) {
+          $fullQuery->execute([":name" => "%" . "%"]);
         } else {
-          // If no results are found with the query echo that no results were found
-          echo "Geen resultaten gevonden";
+          $fullQuery->execute([":name" => "%" . $_POST["search"] . "%"]);
         }
+        $results = $fullQuery->fetchall(PDO::FETCH_ASSOC);
 
-        // Checks if the first query's rowcount is bigger than 0 if there was no filter
-      } elseif ($fullQuery->rowCount() > 0) {
-
-        foreach ($result as $row) {
-          # Echoes the supplier data in a table
-          echo "<table>";
-
-          echo "<thead><th> Naam leverancier: " . $row["name"] . "</th>";
-          echo "<th> Naam land: " . $row["countryname"] . "</th>";
-          echo "<th> adress: " . $row["adress"] . "</th>";
-          echo "</thead>";
-          echo "<th> Naam product:  </th>";
-          echo "<th>Type / smaak </th>";
-          echo "<th> Prijs: product </th>";
-          echo "</thead>";
-          echo "<tbody>";
-          echo "<tr>";
-          // Echoes the product data in a table
-          foreach ($result2 as $row2)
-            if ($row["supplierid"] == $row2["supplierid"]) {
-              echo "<td>" . $row2["name"] . "</td>";
-              echo "<td> " . $row2["flavor"] . "</td>";
-              echo "<td> €" . $row2["price"] . "</td>";
-              echo "</tr>";
-            }
-
-          echo "</tbody>";
-          echo "</table>";
-
-
+        foreach ($results as $result) {
+          echo '<tr>';
+          echo '<td>' . $result["productid"] . '</td>';
+          echo '<td>' . $result["age"] . '</td>';
+          echo '<td>' . $result["type"] . '</td>';
+          echo '<td>' . $result["flavor"] . '</td>';
+          echo '<td>' . $result["price"] . '</td>';
+          echo '<td>' . $result["texture"] . '</td>';
+          echo '<td>' . $result["suppname"] . '</td>';
+          echo "<td>" . $result["catname"] . "</td>";
+          echo '</tr>';
         }
-
-      } else {
-        echo "Geen resultaten gevonden";
-      }
-
-      ?>
+        ?>
+      </table>
     </section>
   </main>
   <?php include '../includes/footer.html'; ?>

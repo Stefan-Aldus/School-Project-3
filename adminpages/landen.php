@@ -46,24 +46,32 @@
                     <th>Munteenheid</th>
                 </tr>
                 <?php
+                // Checks if the countryname filter isn't set
                 if (!isset($_POST["countryname"]) || $_POST["countryname"] === "*") {
+                    // Prepares and executes the query where it selects everything from country
                     try {
                         $query = $db->prepare("SELECT * FROM country");
                         $query->execute();
                     } catch (PDOException $e) {
+                        // Catches any errors
                         exit($e->getMessage());
                     }
                 } else {
+                    // If the filter IS set, retrieve it from the form
                     $countryname = $_POST["countryname"];
+                    // Prepares a query with a WHERE LIKE clause, and executes it with the countryname the user put it
                     try {
                         $query = $db->prepare("SELECT * FROM country WHERE `name` LIKE :countryname");
                         $query->execute([":countryname" => '%' . $countryname . '%']);
                     } catch (PDOException $e) {
+                        // Catches any errors
                         exit($e->getMessage());
                     }
                 }
 
+                // Fetches every result from the query
                 $countries = $query->fetchAll();
+                // Echoes the data retrieved from the database into a table
                 foreach ($countries as $country) {
                     echo '<tr>';
                     echo '<td>' . $country["countryid"] . '</td>';

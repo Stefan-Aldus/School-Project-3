@@ -43,12 +43,12 @@
       <?php
 
       require "../includes/connDatabase.php";
-      #2 een query definieren
-      
+
+
 
 
       try {
-        // $fullQuery = $db->prepare("SELECT filmnaam, regisseur FROM film WHERE filmnaam LIKE 'b%'");
+        // Defines 3 queries
         $fullQuery = $db->prepare("SELECT suppliers.*, country.name AS countryname FROM `suppliers` INNER JOIN country ON country.countryid = suppliers.countryid WHERE country.countryid = suppliers.countryid; ");
         $fullQuery2 = $db->prepare("SELECT * FROM products");
         $fullQuery3 = $db->prepare("SELECT suppliers.*, country.name AS countryname FROM `suppliers` INNER JOIN country ON country.countryid = suppliers.countryid WHERE country.countryid = suppliers.countryid AND suppliers.name LIKE :name; ");
@@ -57,30 +57,27 @@
         die("Fout bij verbinden met database: " . $e->getMessage());
       }
 
-      #3 query uitvoeren
-// suppliers 
+      // Executes the queries
       $fullQuery->execute();
-
-      //  products
       $fullQuery2->execute();
 
-      #4 checken of er een resultaat is
-
-      
-      // suppliers
+      // Stores the results from query 1 and 2
       $result = $fullQuery->fetchall(PDO::FETCH_ASSOC);
-
-      // products
       $result2 = $fullQuery2->fetchall(PDO::FETCH_ASSOC);
 
+      // Checks if the page got filtered and applies the filter
       if (isset($_POST["search"])) {
         $value = $_POST["search"];
+        // Executes a query with a like clause that retrieves the suppliers
         $fullQuery3->execute([":name" => "%" . $value . "%"]);
         $result3 = $fullQuery3->fetchall();
+
+        // If there are results do the code in the if block
         if ($fullQuery->rowCount() > 0) {
 
+          // Echoes the supplier data as a table
           foreach ($result3 as $row) {
-            
+
             echo "<table>";
 
             echo "<thead><th> Naam leverancier: " . $row["name"] . "</th>";
@@ -94,6 +91,7 @@
             echo "<tbody>";
             echo "<tr>";
 
+            // Echoes the product data as a table
             foreach ($result2 as $row2)
               if ($row["supplierid"] == $row2["supplierid"]) {
                 echo "<td>" . $row2["name"] . "</td>";
@@ -109,14 +107,14 @@
           }
 
         } else {
+          // If no results were found notify the user
           echo "Geen resultaten gevonden";
         }
 
-
+        // Else checks if there are results for the query without the filter, and does the same as the above code
       } elseif ($fullQuery->rowCount() > 0) {
 
         foreach ($result as $row) {
-          # filmnaam, regisseur, releasejaar etc moeten gelijk zijn aan de namen die gebruikt zijn in de query
           echo "<table>";
 
           echo "<thead><th> Naam leverancier: " . $row["name"] . "</th>";

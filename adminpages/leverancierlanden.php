@@ -47,7 +47,9 @@
                     <th>Hoeveelheid Leveranciers</th>
                 </tr>
                 <?php
+                // Checks if the country name is not set or if it is * for ALL
                 if (!isset($_POST["countryname"]) || $_POST["countryname"] === "*") {
+                    // Tries the query to select everything from country and the amount of suppliers
                     try {
                         $query = $db->prepare("
                         SELECT country.*, COUNT(suppliers.supplierid) AS suppliercount
@@ -55,12 +57,16 @@
                         INNER JOIN suppliers ON suppliers.countryid = country.countryid
                         GROUP BY country.name;
                         ");
+                        // Executes the query
                         $query->execute();
+                        // Catch any errors
                     } catch (PDOException $e) {
                         exit($e->getMessage());
                     }
                 } else {
+                    // Retrieves the countryname from the form
                     $countryname = $_POST["countryname"];
+                    // Tries the query with a WHERE LIKE clause that the user put in
                     try {
                         $query = $db->prepare("
                         SELECT country.*, COUNT(suppliers.supplierid) AS suppliercount
@@ -68,13 +74,16 @@
                         INNER JOIN suppliers ON suppliers.countryid = country.countryid
                         WHERE country.name LIKE '%:name%'
                         GROUP BY country.name;");
+                        // Executes it
                         $query->execute([":countryname" => '%' . $countryname . '%']);
                     } catch (PDOException $e) {
+                        // Catches any errors
                         exit($e->getMessage());
                     }
                 }
-
+                // Fetches all results from the query
                 $countries = $query->fetchAll();
+                // Echoes the countries and suppliercount in a table
                 foreach ($countries as $country) {
                     echo '<tr>';
                     echo '<td>' . $country["countryid"] . '</td>';

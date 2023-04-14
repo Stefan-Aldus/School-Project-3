@@ -53,17 +53,23 @@
                     <th>D.O.B.</th>
                 </tr>
                 <?php
+                // Checks if the filter is NOT set
                 if (!isset($_POST["place"]) || $_POST["place"] === "*") {
                     try {
+                        // Prepares a query for retrieving all data from the customers table, and executes it
                         $query = $db->prepare("
                         SELECT * FROM customers
                         ");
                         $query->execute();
                     } catch (PDOException $e) {
+                        // Catch any errors
                         exit($e->getMessage());
                     }
                 } else {
+                    // If the form is not set, retrieve the "place" from the form
                     $place = $_POST["place"];
+                    // Prepares a query that selects everything from the custoemrs table where the city is like city
+                    // Then executes that query with $place as the LIKE clause
                     try {
                         $query = $db->prepare("
                         SELECT *
@@ -72,11 +78,15 @@
                         ");
                         $query->execute([":city" => '%' . $place . '%']);
                     } catch (PDOException $e) {
+                        // Catch any errors
                         exit($e->getMessage());
                     }
                 }
 
+                // Retrieves all customers from the database
                 $customers = $query->fetchAll();
+                
+                // Echoes the results as a table
                 foreach ($customers as $customer) {
                     echo '<tr>';
                     echo '<td>' . $customer["customerid"] . '</td>';

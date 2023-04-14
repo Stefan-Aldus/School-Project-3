@@ -32,6 +32,7 @@
 
         <section class="country-stuff small-margin">
             <?php
+            // Prepares and executes a query that retrieves some data from customers
             try {
                 $query = $db->prepare("
                         SELECT customers.customerid, customers.firstname AS firstname, customers.lastname AS lastname
@@ -40,14 +41,18 @@
                         ");
                 $query->execute();
             } catch (PDOException $e) {
+                // Catch any exceptions
                 exit($e->getMessage());
             }
 
+            // Retrieves the results from the database
             $results = $query->fetchAll();
 
             foreach ($results as $result) {
+                // Retrieves the customerid seperately each iteration of the foreach loop
                 $customerid = $result["customerid"];
 
+                // Each iteration of the loop prepare a new statement where you retrieve the products that the customer has ordered
                 try {
                     $query2 = $db->prepare("
                         SELECT products.name, products.flavor, orderrules.quantity AS amount
@@ -59,13 +64,17 @@
                         ");
                     $query2->execute([":customerid" => $customerid]);
                 } catch (PDOException $e) {
+                    // Catch any errors
                     exit($e->getMessage());
                 }
 
+                // Retrieves the products associated with each customerid
                 $products = $query2->fetchAll();
+                // Counts the amount of products associated with each customerid
                 $productsamount = $query2->rowCount();
 
 
+                // Echoes a table with the customer data
                 echo '<table class="spread-style smaller-margin">';
 
                 echo "<thead><th> Voornaam klant: " . $result["firstname"] . "</th>";
@@ -79,6 +88,7 @@
                 echo "<tbody>";
                 echo "<tr>";
 
+                // Echoes a table with the product data associated with the customer
                 foreach ($products as $product) {
                     echo "<tr>";
                     echo "<td>" . $product["name"] . "</td>";
@@ -86,6 +96,7 @@
                     echo "<td>" . $product["amount"] . "</td>";
                     echo "</tr>";
                 }
+                // If the amount of products is 0 or less, echoes "N.V.T." (Not applicable)
                 if ($productsamount <= 0) {
                     echo "<tr>
                     <td>N.V.T.</td>

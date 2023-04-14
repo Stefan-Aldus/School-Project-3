@@ -46,41 +46,44 @@
       #2 een query definieren
       
 
-
+      // Tries the queries reuired for the retrieval of the suppliers 
       try {
-        // $fullQuery = $db->prepare("SELECT filmnaam, regisseur FROM film WHERE filmnaam LIKE 'b%'");
+        // Retrieves suppliers
         $fullQuery = $db->prepare("SELECT suppliers.*, country.name AS countryname FROM `suppliers` INNER JOIN country ON country.countryid = suppliers.countryid WHERE country.countryid = suppliers.countryid; ");
+        // Retrieves products
         $fullQuery2 = $db->prepare("SELECT * FROM products");
+        // Retrieves suppliers with a  LIKE clause
         $fullQuery3 = $db->prepare("SELECT suppliers.*, country.name AS countryname FROM `suppliers` INNER JOIN country ON country.countryid = suppliers.countryid WHERE country.countryid = suppliers.countryid AND country.name LIKE :name; ");
-
+        
+        // Catches any exceptions and stops the program
       } catch (PDOexception $e) {
         die("Fout bij verbinden met database: " . $e->getMessage());
       }
 
-      #3 query uitvoeren
-// suppliers 
+      // Executing the first query (Selecting Suppliers)
       $fullQuery->execute();
 
-      //  products
+      //  Executing the second query (Selecting Products)
       $fullQuery2->execute();
 
-      #4 checken of er een resultaat is
-
-      
-      // suppliers
+      // Retrieves the results from the first and second query
       $result = $fullQuery->fetchall(PDO::FETCH_ASSOC);
-
-      // products
       $result2 = $fullQuery2->fetchall(PDO::FETCH_ASSOC);
 
+      // Checks if the search is set
       if (isset($_POST["search"])) {
+        // Sets the value as the search item
         $value = $_POST["search"];
+        // Executes the third query (same as first) but with a LIKE clause and stores the result
         $fullQuery3->execute([":name" => "%" . $value . "%"]);
         $result3 = $fullQuery3->fetchall();
+        // Checks if the first query has more than 0 results
         if ($fullQuery->rowCount() > 0) {
 
+          // Executes a foreach loopthat stores the results from the third query as a variable
           foreach ($result3 as $row) {
             
+            // Echoes the results in a table
             echo "<table>";
 
             echo "<thead><th> Naam leverancier: " . $row["name"] . "</th>";
@@ -94,6 +97,7 @@
             echo "<tbody>";
             echo "<tr>";
 
+            // Echoes the products as a table
             foreach ($result2 as $row2)
               if ($row["supplierid"] == $row2["supplierid"]) {
                 echo "<td>" . $row2["name"] . "</td>";
@@ -109,14 +113,15 @@
           }
 
         } else {
+          // If no results are found with the query echo that no results were found
           echo "Geen resultaten gevonden";
         }
 
-
+        // Checks if the first query's rowcount is bigger than 0 if there was no filter
       } elseif ($fullQuery->rowCount() > 0) {
 
         foreach ($result as $row) {
-          # filmnaam, regisseur, releasejaar etc moeten gelijk zijn aan de namen die gebruikt zijn in de query
+          # Echoes the supplier data in a table
           echo "<table>";
 
           echo "<thead><th> Naam leverancier: " . $row["name"] . "</th>";
@@ -129,7 +134,7 @@
           echo "</thead>";
           echo "<tbody>";
           echo "<tr>";
-
+          // Echoes the product data in a table
           foreach ($result2 as $row2)
             if ($row["supplierid"] == $row2["supplierid"]) {
               echo "<td>" . $row2["name"] . "</td>";

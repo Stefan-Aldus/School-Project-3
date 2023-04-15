@@ -233,8 +233,6 @@ footer {
   box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12),
     0 4px 4px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.12),
     0 2px 2px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.12);
-  cursor: pointer;
-  cursor: pointer;
 }
 
 .card-h-detail {
@@ -291,7 +289,6 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
   
 
@@ -722,7 +719,7 @@ select,
 .submitbtn{
   width: 100%;
 }
-
+/* all tables *used on every page with a table in it */
 td, th {
   outline: solid 1px black;
 }

@@ -127,7 +127,7 @@
           <input class="submit-admin" type="submit" name="submit-lz" value="submit">
         </div>
       </form>
-      <form method="post" action="">
+      <form method="post" action="filters/filterklantinput.php">
         <div class="admin-add">
           <h3>Voeg Klant toe</h3>
           <label for="customername">Voornaam Klant:</label>
